@@ -1,0 +1,9 @@
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.Business\bin\Debug\Restaurant.Business.dll
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.Business\bin\Debug\Restaurant.Business.pdb
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.Business\bin\Debug\Dapper.dll
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.Business\bin\Debug\Dapper.xml
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.Business\obj\Debug\Restaurant.Business.csprojAssemblyReference.cache
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.Business\obj\Debug\Restaurant.Business.csproj.CoreCompileInputs.cache
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.Business\obj\Debug\Restaurant.Business.csproj.CopyComplete
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.Business\obj\Debug\Restaurant.Business.dll
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.Business\obj\Debug\Restaurant.Business.pdb

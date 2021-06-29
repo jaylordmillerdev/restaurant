@@ -35,6 +35,7 @@
       <HintPath>..\packages\Dapper.2.0.90\lib\net461\Dapper.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -44,13 +45,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Customer\Repository\CustomerDataValidation.cs" />
     <Compile Include="Customer\Model\CustomerModel.cs" />
     <Compile Include="Customer\Service\CustomerService.cs" />
     <Compile Include="IDatabaseConnection.cs" />
+    <Compile Include="IService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequestResult.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Customer\Repository\" />
     <Folder Include="Order\Repository\" />
     <Folder Include="Order\Service\" />
     <Folder Include="Product\Repository\" />

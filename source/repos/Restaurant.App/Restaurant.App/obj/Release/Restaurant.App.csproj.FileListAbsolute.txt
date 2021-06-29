@@ -1,0 +1,13 @@
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\bin\Release\Restaurant.App.exe.config
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\bin\Release\Restaurant.App.exe
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\bin\Release\Restaurant.App.pdb
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\bin\Release\Restaurant.Business.dll
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\bin\Release\Restaurant.Business.pdb
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\bin\Release\Restaurant.Business.dll.config
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\obj\Release\Restaurant.App.csprojAssemblyReference.cache
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\obj\Release\Restaurant.App.Properties.Resources.resources
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\obj\Release\Restaurant.App.csproj.GenerateResource.cache
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\obj\Release\Restaurant.App.csproj.CoreCompileInputs.cache
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\obj\Release\Restaurant.App.csproj.CopyComplete
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\obj\Release\Restaurant.App.exe
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\obj\Release\Restaurant.App.pdb

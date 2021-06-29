@@ -1,0 +1,16 @@
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\obj\Debug\Restaurant.App.csprojAssemblyReference.cache
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\obj\Debug\Restaurant.App.Properties.Resources.resources
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\obj\Debug\Restaurant.App.csproj.GenerateResource.cache
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\obj\Debug\Restaurant.App.csproj.CoreCompileInputs.cache
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\bin\Debug\Restaurant.App.exe.config
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\bin\Debug\Restaurant.App.exe
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\bin\Debug\Restaurant.App.pdb
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\bin\Debug\Restaurant.Business.dll
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\bin\Debug\Restaurant.Business.pdb
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\obj\Debug\Restaurant.App.csproj.CopyComplete
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\obj\Debug\Restaurant.App.exe
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\obj\Debug\Restaurant.App.pdb
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\obj\Debug\Restaurant.App.Main.resources
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\obj\Debug\Restaurant.App.NewCustomer.resources
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\obj\Debug\Restaurant.App.View.CustomerItem.resources
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\obj\Debug\Restaurant.App.View.ViewAllCustomer.resources
