@@ -1,4 +1,5 @@
-﻿using Restaurant.App.Service;
+﻿using FontAwesome.Sharp;
+using Restaurant.App.Service;
 using Restaurant.Business;
 using Restaurant.Business.Customer.Model;
 using System;
@@ -10,10 +11,10 @@ namespace Restaurant.App
     public partial class NewCustomer : Form
     {
         CustomerModel Customer;
-        Main Main;
+        Main MainView;
         public NewCustomer(Main main, CustomerModel customer)
         {
-            this.Main = main;
+            this.MainView = main;
             this.Customer = customer;
             InitializeComponent();
             ErrorMessageLabel.Visible = false;
@@ -22,8 +23,12 @@ namespace Restaurant.App
                 ShowCustomerData();
             }
             SaveBTN.Text = customer != null ? "Update" : "Save";
+            GenerateIcons();
         }
-
+        private void GenerateIcons()
+        {
+            BackBT.Image = IconChar.Backspace.ToBitmap(iconFont: IconFont.Auto, size: 40, color: CONFIG.Instance.MAIN_COLOR);
+        }
         private void ShowCustomerData()
         {
             FirstnameTB.Text = Customer.Firstname;
@@ -82,7 +87,7 @@ namespace Restaurant.App
 
         private void GoBack(object sender, EventArgs e)
         {
-            Main.GoToCustomersList();
+            MainView.GoToCustomersList();
         }
     }
 }

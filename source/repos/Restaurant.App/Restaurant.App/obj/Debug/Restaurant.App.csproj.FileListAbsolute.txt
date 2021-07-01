@@ -14,3 +14,12 @@ F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\obj\Debug\Restau
 F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\obj\Debug\Restaurant.App.NewCustomer.resources
 F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\obj\Debug\Restaurant.App.View.CustomerItem.resources
 F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\obj\Debug\Restaurant.App.View.ViewAllCustomer.resources
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\obj\Debug\Restaurant.App.View.ViewAllProduct.resources
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\obj\Debug\Restaurant.App.View.NewAndUpdateProduct.resources
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\obj\Debug\Restaurant.App.View.ProductItem.resources
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\bin\Debug\FontAwesome.Sharp.dll
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\obj\Debug\Restaurant.App.View.NewAndUpdateOrder.resources
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\obj\Debug\Restaurant.App.View.ViewAllOrder.resources
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\obj\Debug\Restaurant.App.View.OrderItem.resources
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\bin\Debug\font\fontawesome-webfont.ttf
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\bin\Debug\FontAwesomeNet.dll

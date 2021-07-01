@@ -30,7 +30,6 @@ namespace Restaurant.App
         private void InitializeComponent()
         {
             this.CustomerLayoutView = new System.Windows.Forms.Panel();
-            this.BackBT = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.FirstnameTB = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,10 +41,12 @@ namespace Restaurant.App
             this.label3 = new System.Windows.Forms.Label();
             this.ErrorMessageLabel = new System.Windows.Forms.Label();
             this.SaveBTN = new System.Windows.Forms.Button();
+            this.BackBT = new System.Windows.Forms.PictureBox();
             this.CustomerLayoutView.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BackBT)).BeginInit();
             this.SuspendLayout();
             // 
             // CustomerLayoutView
@@ -60,16 +61,6 @@ namespace Restaurant.App
             this.CustomerLayoutView.Name = "CustomerLayoutView";
             this.CustomerLayoutView.Size = new System.Drawing.Size(674, 450);
             this.CustomerLayoutView.TabIndex = 0;
-            // 
-            // BackBT
-            // 
-            this.BackBT.Location = new System.Drawing.Point(0, 0);
-            this.BackBT.Name = "BackBT";
-            this.BackBT.Size = new System.Drawing.Size(103, 50);
-            this.BackBT.TabIndex = 12;
-            this.BackBT.Text = "Back";
-            this.BackBT.UseVisualStyleBackColor = true;
-            this.BackBT.Click += new System.EventHandler(this.GoBack);
             // 
             // flowLayoutPanel1
             // 
@@ -171,6 +162,15 @@ namespace Restaurant.App
             this.SaveBTN.UseVisualStyleBackColor = true;
             this.SaveBTN.Click += new System.EventHandler(this.SaveCustomerBTN);
             // 
+            // BackBT
+            // 
+            this.BackBT.Location = new System.Drawing.Point(12, 0);
+            this.BackBT.Name = "BackBT";
+            this.BackBT.Size = new System.Drawing.Size(50, 50);
+            this.BackBT.TabIndex = 14;
+            this.BackBT.TabStop = false;
+            this.BackBT.Click += new System.EventHandler(this.GoBack);
+            // 
             // NewCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -189,6 +189,7 @@ namespace Restaurant.App
             this.flowLayoutPanel2.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BackBT)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -205,7 +206,7 @@ namespace Restaurant.App
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label ErrorMessageLabel;
         private System.Windows.Forms.Button SaveBTN;
-        private System.Windows.Forms.Button BackBT;
         public System.Windows.Forms.Panel CustomerLayoutView;
+        private System.Windows.Forms.PictureBox BackBT;
     }
 }

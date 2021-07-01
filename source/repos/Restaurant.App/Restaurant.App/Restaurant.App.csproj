@@ -33,6 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FontAwesome.Sharp, Version=5.15.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.5.15.3\lib\net472\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="FontAwesomeNet, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesomeNet.1.1.0\lib\net35\FontAwesomeNet.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -47,13 +53,55 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CONFIG.cs" />
+    <Compile Include="ConvertListOfStringToDataTable.cs" />
+    <Compile Include="OrderTotalModel.cs" />
     <Compile Include="IService.cs" />
     <Compile Include="Service\CustomerService.cs" />
+    <Compile Include="Service\OrderService.cs" />
+    <Compile Include="Service\ProductService.cs" />
+    <Compile Include="UseCustomFont.cs" />
     <Compile Include="View\CustomerItem.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\CustomerItem.Designer.cs">
       <DependentUpon>CustomerItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\NewAndUpdateOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NewAndUpdateOrder.Designer.cs">
+      <DependentUpon>NewAndUpdateOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\NewAndUpdateProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NewAndUpdateProduct.Designer.cs">
+      <DependentUpon>NewAndUpdateProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\OrderItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\OrderItem.Designer.cs">
+      <DependentUpon>OrderItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ProductItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ProductItem.Designer.cs">
+      <DependentUpon>ProductItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewAllOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ViewAllOrder.Designer.cs">
+      <DependentUpon>ViewAllOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewAllProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ViewAllProduct.Designer.cs">
+      <DependentUpon>ViewAllProduct.cs</DependentUpon>
     </Compile>
     <Compile Include="View\NewAndUpdateCustomer.cs">
       <SubType>Form</SubType>
@@ -93,9 +141,38 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\NewAndUpdateOrder.resx">
+      <DependentUpon>NewAndUpdateOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\NewAndUpdateProduct.resx">
+      <DependentUpon>NewAndUpdateProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\OrderItem.resx">
+      <DependentUpon>OrderItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ProductItem.resx">
+      <DependentUpon>ProductItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\ViewAllCustomer.resx">
       <DependentUpon>ViewAllCustomer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\ViewAllOrder.resx">
+      <DependentUpon>ViewAllOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ViewAllProduct.resx">
+      <DependentUpon>ViewAllProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="assets\font\Montserrat-Bold.ttf" />
+    <None Include="assets\font\Montserrat-Light.ttf" />
+    <None Include="assets\font\Montserrat-Regular.ttf" />
+    <Content Include="assets\image\user.png" />
+    <Content Include="assets\image\icon_large.png" />
+    <Content Include="assets\image\icon_small.png" />
+    <Content Include="assets\image\icon_small_white.png" />
+    <Content Include="font\fontawesome-webfont.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -115,6 +192,8 @@
       <Name>Restaurant.Business</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="assets\animation\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

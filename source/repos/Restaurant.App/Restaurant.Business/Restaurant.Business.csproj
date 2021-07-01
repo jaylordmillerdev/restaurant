@@ -49,16 +49,18 @@
     <Compile Include="Customer\Model\CustomerModel.cs" />
     <Compile Include="Customer\Service\CustomerService.cs" />
     <Compile Include="IDatabaseConnection.cs" />
-    <Compile Include="IService.cs" />
+    <Compile Include="IServiceRepository.cs" />
+    <Compile Include="Order\Model\NewOrderModel.cs" />
+    <Compile Include="Order\Model\OrderModel.cs" />
+    <Compile Include="Order\Repository\NewOrderDataValidation.cs" />
+    <Compile Include="Order\Service\OrderService.cs" />
+    <Compile Include="Product\Model\ProductModel.cs" />
+    <Compile Include="Product\Repository\ProductDataValidation.cs" />
+    <Compile Include="Product\Service\ProductService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestResult.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Order\Repository\" />
-    <Folder Include="Order\Service\" />
-    <Folder Include="Product\Repository\" />
-    <Folder Include="Product\Service\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

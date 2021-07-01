@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 
 namespace Restaurant.Business.Customer.Service
 {
-    public class CustomerService : IDatabaseConnection, IService<CustomerModel>
+    public class CustomerService : IDatabaseConnection, IServiceRepository<CustomerModel>
     {
         SqlConnection Connection;
         public CustomerService(String connectionString)
@@ -38,7 +38,7 @@ namespace Restaurant.Business.Customer.Service
             catch (Exception ex)
             {
                 Disconnect();
-                return new RequestResult("Encounter an error saving customer: " + ex.Message, false);
+                return new RequestResult("Encounter an error saving customer, please contact admin", false);
             }
         }
 
@@ -62,7 +62,7 @@ namespace Restaurant.Business.Customer.Service
             catch (Exception ex)
             {
                 Disconnect();
-                return new RequestResult("Encounter an error updated customer: " + ex.Message, false);
+                return new RequestResult("Encounter an error updated customer, please contact admin", false);
             }
         }
         public RequestResult Delete(int id)
@@ -80,10 +80,10 @@ namespace Restaurant.Business.Customer.Service
             catch (Exception ex)
             {
                 Disconnect();
-                return new RequestResult("Encounter an error deleting customer: " + ex.Message, false);
+                return new RequestResult("Encounter an error deleting customer, please contact admin", false);
             }
         }
-        public List<CustomerModel> GetAllCustomer()
+        public List<CustomerModel> FetchAll()
         {
             List<CustomerModel> Customers = new List<CustomerModel>();
             string query = "EXEC FetchAllCustomer;";
@@ -93,7 +93,6 @@ namespace Restaurant.Business.Customer.Service
                 {
                     while (oReader.Read())
                     {
-                        Console.WriteLine("First "+oReader["Firstname"].ToString());
                         Customers.Add(new CustomerModel(
                             id: Int32.Parse(oReader["ID"].ToString()),
                             firstname: oReader["Firstname"].ToString(),
@@ -101,6 +100,23 @@ namespace Restaurant.Business.Customer.Service
                             address: oReader["Address"].ToString(),
                             dateCreated: Convert.ToDateTime(oReader["DateCreated"].ToString())
                         ));
+                    }
+                }
+            }
+            Disconnect();
+            return Customers;
+        }
+        public List<string> FetchAllCustomerNameAndId()
+        {
+            List<string> Customers = new List<string>();
+            string query = "EXEC FetchAllCustomer;";
+            using (SqlCommand oCmd = new SqlCommand(query, Connection))
+            {
+                using (SqlDataReader oReader = oCmd.ExecuteReader())
+                {
+                    while (oReader.Read())
+                    {
+                        Customers.Add(oReader["Firstname"].ToString() + " " + oReader["Lastname"].ToString()+ " - #" + oReader["ID"].ToString());
                     }
                 }
             }
