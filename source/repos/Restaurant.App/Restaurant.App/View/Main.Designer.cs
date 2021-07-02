@@ -30,8 +30,16 @@ namespace Restaurant.App
         private void InitializeComponent()
         {
             this.FunctionsView = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.IconLarge = new System.Windows.Forms.PictureBox();
+            this.splitter1 = new System.Windows.Forms.Splitter();
+            this.AppDescriptionLabel = new System.Windows.Forms.Label();
+            this.AppTitleLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.HeaderIcon = new System.Windows.Forms.PictureBox();
             this.OrderMenuBar = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.OrderLabel = new System.Windows.Forms.Label();
             this.OrderSplitter = new System.Windows.Forms.Splitter();
             this.ProductMenuBar = new System.Windows.Forms.Panel();
@@ -40,23 +48,15 @@ namespace Restaurant.App
             this.CustomerMenuBar = new System.Windows.Forms.Panel();
             this.CustomerLabel = new System.Windows.Forms.Label();
             this.CustomerSplitter = new System.Windows.Forms.Splitter();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.AppTitleLabel = new System.Windows.Forms.Label();
-            this.AppDescriptionLabel = new System.Windows.Forms.Label();
-            this.splitter1 = new System.Windows.Forms.Splitter();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.HeaderIcon = new System.Windows.Forms.PictureBox();
-            this.IconLarge = new System.Windows.Forms.PictureBox();
             this.FunctionsView.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.IconLarge)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.HeaderIcon)).BeginInit();
             this.OrderMenuBar.SuspendLayout();
             this.ProductMenuBar.SuspendLayout();
             this.CustomerMenuBar.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.HeaderIcon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IconLarge)).BeginInit();
             this.SuspendLayout();
             // 
             // FunctionsView
@@ -64,12 +64,59 @@ namespace Restaurant.App
             this.FunctionsView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.FunctionsView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
+            this.FunctionsView.BackColor = System.Drawing.Color.White;
             this.FunctionsView.Controls.Add(this.panel2);
             this.FunctionsView.Location = new System.Drawing.Point(123, 0);
             this.FunctionsView.Name = "FunctionsView";
             this.FunctionsView.Size = new System.Drawing.Size(696, 450);
             this.FunctionsView.TabIndex = 1;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.IconLarge);
+            this.panel2.Controls.Add(this.splitter1);
+            this.panel2.Controls.Add(this.AppDescriptionLabel);
+            this.panel2.Controls.Add(this.AppTitleLabel);
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(693, 447);
+            this.panel2.TabIndex = 0;
+            // 
+            // IconLarge
+            // 
+            this.IconLarge.Location = new System.Drawing.Point(202, 83);
+            this.IconLarge.Name = "IconLarge";
+            this.IconLarge.Size = new System.Drawing.Size(300, 300);
+            this.IconLarge.TabIndex = 3;
+            this.IconLarge.TabStop = false;
+            // 
+            // splitter1
+            // 
+            this.splitter1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.splitter1.Location = new System.Drawing.Point(0, 0);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(10, 447);
+            this.splitter1.TabIndex = 2;
+            this.splitter1.TabStop = false;
+            // 
+            // AppDescriptionLabel
+            // 
+            this.AppDescriptionLabel.AutoSize = true;
+            this.AppDescriptionLabel.Location = new System.Drawing.Point(23, 48);
+            this.AppDescriptionLabel.Name = "AppDescriptionLabel";
+            this.AppDescriptionLabel.Size = new System.Drawing.Size(121, 13);
+            this.AppDescriptionLabel.TabIndex = 1;
+            this.AppDescriptionLabel.Text = "${APP_DESCRIPTION}";
+            // 
+            // AppTitleLabel
+            // 
+            this.AppTitleLabel.AutoSize = true;
+            this.AppTitleLabel.Location = new System.Drawing.Point(19, 16);
+            this.AppTitleLabel.Name = "AppTitleLabel";
+            this.AppTitleLabel.Size = new System.Drawing.Size(125, 13);
+            this.AppTitleLabel.TabIndex = 0;
+            this.AppTitleLabel.Text = "ADONIS RESTAURANT";
             // 
             // panel1
             // 
@@ -84,6 +131,25 @@ namespace Restaurant.App
             this.panel1.Size = new System.Drawing.Size(120, 450);
             this.panel1.TabIndex = 2;
             // 
+            // panel3
+            // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Controls.Add(this.HeaderIcon);
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(120, 100);
+            this.panel3.TabIndex = 2;
+            // 
+            // HeaderIcon
+            // 
+            this.HeaderIcon.Location = new System.Drawing.Point(29, 19);
+            this.HeaderIcon.Name = "HeaderIcon";
+            this.HeaderIcon.Size = new System.Drawing.Size(60, 60);
+            this.HeaderIcon.TabIndex = 0;
+            this.HeaderIcon.TabStop = false;
+            // 
             // OrderMenuBar
             // 
             this.OrderMenuBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -95,6 +161,18 @@ namespace Restaurant.App
             this.OrderMenuBar.Size = new System.Drawing.Size(119, 43);
             this.OrderMenuBar.TabIndex = 1;
             this.OrderMenuBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OrderBTNClick);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Red;
+            this.label1.Font = new System.Drawing.Font("Myanmar Text", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(93, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(15, 20);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "2";
             // 
             // OrderLabel
             // 
@@ -175,106 +253,29 @@ namespace Restaurant.App
             this.CustomerSplitter.TabIndex = 0;
             this.CustomerSplitter.TabStop = false;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Red;
-            this.label1.Font = new System.Drawing.Font("Myanmar Text", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(93, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(15, 20);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "2";
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.IconLarge);
-            this.panel2.Controls.Add(this.splitter1);
-            this.panel2.Controls.Add(this.AppDescriptionLabel);
-            this.panel2.Controls.Add(this.AppTitleLabel);
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(693, 447);
-            this.panel2.TabIndex = 0;
-            // 
-            // AppTitleLabel
-            // 
-            this.AppTitleLabel.AutoSize = true;
-            this.AppTitleLabel.Location = new System.Drawing.Point(19, 16);
-            this.AppTitleLabel.Name = "AppTitleLabel";
-            this.AppTitleLabel.Size = new System.Drawing.Size(125, 13);
-            this.AppTitleLabel.TabIndex = 0;
-            this.AppTitleLabel.Text = "ADONIS RESTAURANT";
-            // 
-            // AppDescriptionLabel
-            // 
-            this.AppDescriptionLabel.AutoSize = true;
-            this.AppDescriptionLabel.Location = new System.Drawing.Point(23, 48);
-            this.AppDescriptionLabel.Name = "AppDescriptionLabel";
-            this.AppDescriptionLabel.Size = new System.Drawing.Size(121, 13);
-            this.AppDescriptionLabel.TabIndex = 1;
-            this.AppDescriptionLabel.Text = "${APP_DESCRIPTION}";
-            // 
-            // splitter1
-            // 
-            this.splitter1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.splitter1.Location = new System.Drawing.Point(0, 0);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(10, 447);
-            this.splitter1.TabIndex = 2;
-            this.splitter1.TabStop = false;
-            // 
-            // panel3
-            // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.Controls.Add(this.HeaderIcon);
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(120, 100);
-            this.panel3.TabIndex = 2;
-            // 
-            // HeaderIcon
-            // 
-            this.HeaderIcon.Location = new System.Drawing.Point(29, 19);
-            this.HeaderIcon.Name = "HeaderIcon";
-            this.HeaderIcon.Size = new System.Drawing.Size(60, 60);
-            this.HeaderIcon.TabIndex = 0;
-            this.HeaderIcon.TabStop = false;
-            // 
-            // IconLarge
-            // 
-            this.IconLarge.Location = new System.Drawing.Point(202, 83);
-            this.IconLarge.Name = "IconLarge";
-            this.IconLarge.Size = new System.Drawing.Size(300, 300);
-            this.IconLarge.TabIndex = 3;
-            this.IconLarge.TabStop = false;
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.ClientSize = new System.Drawing.Size(822, 450);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.FunctionsView);
             this.Name = "Main";
             this.Text = "ADONIS RESTAURANT";
             this.FunctionsView.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.IconLarge)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.HeaderIcon)).EndInit();
             this.OrderMenuBar.ResumeLayout(false);
             this.OrderMenuBar.PerformLayout();
             this.ProductMenuBar.ResumeLayout(false);
             this.ProductMenuBar.PerformLayout();
             this.CustomerMenuBar.ResumeLayout(false);
             this.CustomerMenuBar.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.HeaderIcon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IconLarge)).EndInit();
             this.ResumeLayout(false);
 
         }

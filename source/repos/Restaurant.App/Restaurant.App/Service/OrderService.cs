@@ -44,8 +44,12 @@ namespace Restaurant.App.Service
                 );
             return Service.Update(data);
         }
-        public List<OrderModel> GetAllOrder() { return Service.FetchAll(); }
-        public List<OrderModel> GetAllOrderFromDateFilter(string startDate, string endDate) { return Service.FetchAllByDateFilter(start: startDate, end: endDate); }
+        public List<OrderModel> GetAllOrder() { 
+            return Service.FetchAll(); 
+        }
+        public List<OrderModel> GetAllOrderFromDateFilter(string startDate, string endDate) {
+            return Service.FetchAllByDateFilter(start: startDate, end: endDate);
+        }
         public Restaurant.Business.Order.Service.OrderService Service { get; }
     }
 }

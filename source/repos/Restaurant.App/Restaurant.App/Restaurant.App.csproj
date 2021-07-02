@@ -55,16 +55,19 @@
   <ItemGroup>
     <Compile Include="CONFIG.cs" />
     <Compile Include="ConvertListOfStringToDataTable.cs" />
+    <Compile Include="CustomSkin\BottomBorderTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="OrderTotalModel.cs" />
-    <Compile Include="IService.cs" />
+    <Compile Include="IServiceConnection.cs" />
     <Compile Include="Service\CustomerService.cs" />
     <Compile Include="Service\OrderService.cs" />
     <Compile Include="Service\ProductService.cs" />
     <Compile Include="UseCustomFont.cs" />
-    <Compile Include="View\CustomerItem.cs">
+    <Compile Include="View\Item\CustomerItem.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\CustomerItem.Designer.cs">
+    <Compile Include="View\Item\CustomerItem.Designer.cs">
       <DependentUpon>CustomerItem.cs</DependentUpon>
     </Compile>
     <Compile Include="View\NewAndUpdateOrder.cs">
@@ -79,16 +82,16 @@
     <Compile Include="View\NewAndUpdateProduct.Designer.cs">
       <DependentUpon>NewAndUpdateProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\OrderItem.cs">
+    <Compile Include="View\Item\OrderItem.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\OrderItem.Designer.cs">
+    <Compile Include="View\Item\OrderItem.Designer.cs">
       <DependentUpon>OrderItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\ProductItem.cs">
+    <Compile Include="View\Item\ProductItem.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\ProductItem.Designer.cs">
+    <Compile Include="View\Item\ProductItem.Designer.cs">
       <DependentUpon>ProductItem.cs</DependentUpon>
     </Compile>
     <Compile Include="View\ViewAllOrder.cs">
@@ -123,7 +126,7 @@
     <Compile Include="View\ViewAllCustomer.Designer.cs">
       <DependentUpon>ViewAllCustomer.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\CustomerItem.resx">
+    <EmbeddedResource Include="View\Item\CustomerItem.resx">
       <DependentUpon>CustomerItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\NewAndUpdateCustomer.resx">
@@ -147,10 +150,10 @@
     <EmbeddedResource Include="View\NewAndUpdateProduct.resx">
       <DependentUpon>NewAndUpdateProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\OrderItem.resx">
+    <EmbeddedResource Include="View\Item\OrderItem.resx">
       <DependentUpon>OrderItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\ProductItem.resx">
+    <EmbeddedResource Include="View\Item\ProductItem.resx">
       <DependentUpon>ProductItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\ViewAllCustomer.resx">

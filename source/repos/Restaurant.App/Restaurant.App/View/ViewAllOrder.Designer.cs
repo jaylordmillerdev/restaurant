@@ -32,21 +32,21 @@ namespace Restaurant.App.View
             this.OrderViewLayout = new System.Windows.Forms.TableLayoutPanel();
             this.layout = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.FilterStartDate = new System.Windows.Forms.DateTimePicker();
-            this.FilterEndDate = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.ExitFilter = new System.Windows.Forms.PictureBox();
             this.RefreshBT = new System.Windows.Forms.PictureBox();
+            this.ExitFilter = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.FilterEndDate = new System.Windows.Forms.DateTimePicker();
+            this.FilterStartDate = new System.Windows.Forms.DateTimePicker();
             this.OrderViewLayout.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ExitFilter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RefreshBT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ExitFilter)).BeginInit();
             this.SuspendLayout();
             // 
             // OrderViewLayout
             // 
-            this.OrderViewLayout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
+            this.OrderViewLayout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.OrderViewLayout.ColumnCount = 1;
             this.OrderViewLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.OrderViewLayout.Controls.Add(this.layout, 0, 1);
@@ -66,7 +66,7 @@ namespace Restaurant.App.View
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.layout.AutoScroll = true;
-            this.layout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
+            this.layout.BackColor = System.Drawing.Color.Transparent;
             this.layout.Location = new System.Drawing.Point(3, 48);
             this.layout.Name = "layout";
             this.layout.Size = new System.Drawing.Size(686, 399);
@@ -88,39 +88,14 @@ namespace Restaurant.App.View
             this.panel1.Size = new System.Drawing.Size(686, 39);
             this.panel1.TabIndex = 2;
             // 
-            // FilterStartDate
+            // RefreshBT
             // 
-            this.FilterStartDate.Location = new System.Drawing.Point(56, 9);
-            this.FilterStartDate.Name = "FilterStartDate";
-            this.FilterStartDate.Size = new System.Drawing.Size(200, 20);
-            this.FilterStartDate.TabIndex = 0;
-            this.FilterStartDate.ValueChanged += new System.EventHandler(this.StartDateChangeValue);
-            // 
-            // FilterEndDate
-            // 
-            this.FilterEndDate.Location = new System.Drawing.Point(401, 9);
-            this.FilterEndDate.Name = "FilterEndDate";
-            this.FilterEndDate.Size = new System.Drawing.Size(200, 20);
-            this.FilterEndDate.TabIndex = 1;
-            this.FilterEndDate.ValueChanged += new System.EventHandler(this.EndDateChangeValue);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Start";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(359, 12);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(26, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "End";
+            this.RefreshBT.Location = new System.Drawing.Point(617, 10);
+            this.RefreshBT.Name = "RefreshBT";
+            this.RefreshBT.Size = new System.Drawing.Size(20, 20);
+            this.RefreshBT.TabIndex = 9;
+            this.RefreshBT.TabStop = false;
+            this.RefreshBT.Click += new System.EventHandler(this.Refresh);
             // 
             // ExitFilter
             // 
@@ -131,14 +106,39 @@ namespace Restaurant.App.View
             this.ExitFilter.TabStop = false;
             this.ExitFilter.Click += new System.EventHandler(this.RefetchAllData);
             // 
-            // RefreshBT
+            // label2
             // 
-            this.RefreshBT.Location = new System.Drawing.Point(617, 10);
-            this.RefreshBT.Name = "RefreshBT";
-            this.RefreshBT.Size = new System.Drawing.Size(20, 20);
-            this.RefreshBT.TabIndex = 9;
-            this.RefreshBT.TabStop = false;
-            this.RefreshBT.Click += new System.EventHandler(this.Refresh);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(359, 12);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(26, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "End";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(29, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Start";
+            // 
+            // FilterEndDate
+            // 
+            this.FilterEndDate.Location = new System.Drawing.Point(401, 9);
+            this.FilterEndDate.Name = "FilterEndDate";
+            this.FilterEndDate.Size = new System.Drawing.Size(200, 20);
+            this.FilterEndDate.TabIndex = 1;
+            this.FilterEndDate.ValueChanged += new System.EventHandler(this.EndDateChangeValue);
+            // 
+            // FilterStartDate
+            // 
+            this.FilterStartDate.Location = new System.Drawing.Point(56, 9);
+            this.FilterStartDate.Name = "FilterStartDate";
+            this.FilterStartDate.Size = new System.Drawing.Size(200, 20);
+            this.FilterStartDate.TabIndex = 0;
+            this.FilterStartDate.ValueChanged += new System.EventHandler(this.StartDateChangeValue);
             // 
             // ViewAllOrder
             // 
@@ -151,8 +151,8 @@ namespace Restaurant.App.View
             this.OrderViewLayout.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ExitFilter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RefreshBT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ExitFilter)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -3,28 +3,54 @@ using System.Drawing.Text;
 
 namespace Restaurant.App
 {
-    public class UseCustomFont
+    public sealed class CustomFont
     {
-        public Font RegularFont(int size)
+        private CustomFont() { }
+        private static CustomFont Instance = null;
+
+        public static CustomFont Get
+        {
+            get
+            {
+                if (Instance == null)
+                {
+                    Instance = new CustomFont();
+                }
+                return Instance;
+            }
+        }
+        PrivateFontCollection RegularFontData;
+        PrivateFontCollection BoldFontData;
+        PrivateFontCollection LightFontData;
+        public Font RegularFontLage(int size)
         {
             string path = "../../assets/font/Montserrat-Regular.ttf";
-            PrivateFontCollection modernFont = new PrivateFontCollection();
-            modernFont.AddFontFile(path);
-            return new Font(modernFont.Families[0], size);
+            if (RegularFontData == null)
+            {
+                RegularFontData = new PrivateFontCollection();
+                RegularFontData.AddFontFile(path);
+            }
+            return new Font(RegularFontData.Families[0], size);
         }
         public Font BoldFont(int size)
         {
             string path = "../../assets/font/Montserrat-Bold.ttf";
-            PrivateFontCollection modernFont = new PrivateFontCollection();
-            modernFont.AddFontFile(path);
-            return new Font(modernFont.Families[0], size);
+            if (BoldFontData == null)
+            {
+                BoldFontData = new PrivateFontCollection();
+                BoldFontData.AddFontFile(path);
+            }
+            return new Font(BoldFontData.Families[0], size);
         }
         public Font LightFont(int size)
         {
             string path = "../../assets/font/Montserrat-Light.ttf";
-            PrivateFontCollection modernFont = new PrivateFontCollection();
-            modernFont.AddFontFile(path);
-            return new Font(modernFont.Families[0], size);
+            if (LightFontData == null)
+            {
+                LightFontData = new PrivateFontCollection();
+                LightFontData.AddFontFile(path);
+            }
+            return new Font(LightFontData.Families[0], size);
         }
     }
 }

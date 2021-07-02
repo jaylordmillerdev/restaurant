@@ -1,36 +1,38 @@
-﻿using FontAwesome.Sharp;
-using Restaurant.App.Service;
+﻿using Restaurant.App.Service;
 using Restaurant.Business;
-using Restaurant.Business.Customer.Model;
+using Restaurant.Business.Product.Model;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using FontAwesome.Sharp;
 
 namespace Restaurant.App.View
 {
-    public partial class CustomerItem : Form
+    public partial class ProductItem : Form
     {
         Color FocusColor = ColorTranslator.FromHtml("#ebfaff");
         Color UnfocusColor = Color.White;
-        CustomerModel Customer;
-        ViewAllCustomer Main;
-        public CustomerItem(CustomerModel customer, ViewAllCustomer main)
+        ProductModel Product;
+        ViewAllProduct Main;
+        public ProductItem(ProductModel product, ViewAllProduct main)
         {
-            this.Customer = customer;
+            this.Product = product;
             this.Main = main;
             InitializeComponent();
             SetHoverContent();
-            CustomerNameLB.Font = new UseCustomFont().LightFont(8);
-            CustomerNameLB.Text = $"Customer Name: {Customer.Firstname} {Customer.Lastname} / Customer Address: {Customer.Address}";
-            MainPanel.BackColor = Color.White;
+            ProductNameLB.Text = product.Name+ " (₱" + product.Price.ToString("0.00")+")";
+            ProductNameLB.Font = CustomFont.Get.BoldFont(8);
+            QuantityLeftLB.Text = "Quantity Left ("+ product.Quantity+")";
+            QuantityLeftLB.Font = CustomFont.Get.LightFont(8);
             Splitter.Visible = false;
+            MainPanel.BackColor = Color.White;
             GenerateIcons();
         }
         private void GenerateIcons()
         {
             DeleteBT.Image = IconChar.Trash.ToBitmap(iconFont: IconFont.Auto, size: 20, color: Color.Red);
             EditBT.Image = IconChar.Edit.ToBitmap(iconFont: IconFont.Auto, size: 20, color: Color.Gray);
-            CustomerIcon.Image = Image.FromFile("../../assets/image/user.png");
+            OrderNowBT.Image = IconChar.CartPlus.ToBitmap(iconFont: IconFont.Auto, size: 20, color: Color.Green);
         }
         private void SetHoverContent()
         {
@@ -47,30 +49,35 @@ namespace Restaurant.App.View
                 };
             }
         }
+
         private void FocusItem(bool isFocus)
         {
-            MainPanel.BackColor = isFocus ? FocusColor : UnfocusColor;
+            MainPanel.BackColor = isFocus? FocusColor:UnfocusColor;
             Splitter.Visible = isFocus;
         }
+
         private void DeleteItem(object sender, EventArgs e)
         {
-            RequestResult requestStatus = new CustomerService().Delete(id: Customer.Id);
-            Main.ShowAllCustomer();
+            RequestResult requestStatus = new ProductService().Delete(id: Product.ProductId);
+            Main.ShowAllProduct();
         }
 
         private void UpdateItem(object sender, EventArgs e)
         {
-            Main.UpdateItem(Customer);
+            Main.UpdateItem(Product);
         }
-
         private void MainPanelEnter(object sender, EventArgs e)
         {
             FocusItem(true);
         }
-
         private void MainPanelLeave(object sender, EventArgs e)
         {
             FocusItem(false);
+        }
+
+        private void OrderItem(object sender, EventArgs e)
+        {
+            Main.OrderItem(Product);
         }
     }
 }

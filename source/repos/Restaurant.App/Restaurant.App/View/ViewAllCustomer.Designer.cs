@@ -40,7 +40,7 @@ namespace Restaurant.App.View
             // 
             // CustomerViewLayout
             // 
-            this.CustomerViewLayout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
+            this.CustomerViewLayout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.CustomerViewLayout.ColumnCount = 1;
             this.CustomerViewLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.CustomerViewLayout.Controls.Add(this.layout, 0, 1);
@@ -60,7 +60,7 @@ namespace Restaurant.App.View
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.layout.AutoScroll = true;
-            this.layout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
+            this.layout.BackColor = System.Drawing.Color.Transparent;
             this.layout.Location = new System.Drawing.Point(3, 48);
             this.layout.Name = "layout";
             this.layout.Size = new System.Drawing.Size(686, 399);

@@ -30,23 +30,23 @@ namespace Restaurant.App
         private void InitializeComponent()
         {
             this.CustomerLayoutView = new System.Windows.Forms.Panel();
+            this.BackBT = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.FirstnameTB = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.LastnameTB = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.AddressTB = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.ErrorMessageLabel = new System.Windows.Forms.Label();
             this.SaveBTN = new System.Windows.Forms.Button();
-            this.BackBT = new System.Windows.Forms.PictureBox();
+            this.FirstnameTB = new Restaurant.App.CustomSkin.BottomBorderTextBox();
+            this.LastnameTB = new Restaurant.App.CustomSkin.BottomBorderTextBox();
+            this.AddressTB = new Restaurant.App.CustomSkin.BottomBorderTextBox();
             this.CustomerLayoutView.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BackBT)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BackBT)).BeginInit();
             this.SuspendLayout();
             // 
             // CustomerLayoutView
@@ -62,6 +62,15 @@ namespace Restaurant.App
             this.CustomerLayoutView.Size = new System.Drawing.Size(674, 450);
             this.CustomerLayoutView.TabIndex = 0;
             // 
+            // BackBT
+            // 
+            this.BackBT.Location = new System.Drawing.Point(12, 0);
+            this.BackBT.Name = "BackBT";
+            this.BackBT.Size = new System.Drawing.Size(50, 50);
+            this.BackBT.TabIndex = 14;
+            this.BackBT.TabStop = false;
+            this.BackBT.Click += new System.EventHandler(this.GoBack);
+            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.FirstnameTB);
@@ -70,13 +79,6 @@ namespace Restaurant.App
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(334, 24);
             this.flowLayoutPanel1.TabIndex = 8;
-            // 
-            // FirstnameTB
-            // 
-            this.FirstnameTB.Location = new System.Drawing.Point(3, 3);
-            this.FirstnameTB.Name = "FirstnameTB";
-            this.FirstnameTB.Size = new System.Drawing.Size(258, 20);
-            this.FirstnameTB.TabIndex = 1;
             // 
             // label1
             // 
@@ -98,13 +100,6 @@ namespace Restaurant.App
             this.flowLayoutPanel2.Size = new System.Drawing.Size(334, 23);
             this.flowLayoutPanel2.TabIndex = 9;
             // 
-            // LastnameTB
-            // 
-            this.LastnameTB.Location = new System.Drawing.Point(3, 3);
-            this.LastnameTB.Name = "LastnameTB";
-            this.LastnameTB.Size = new System.Drawing.Size(258, 20);
-            this.LastnameTB.TabIndex = 2;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -122,13 +117,6 @@ namespace Restaurant.App
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(334, 23);
             this.flowLayoutPanel3.TabIndex = 10;
-            // 
-            // AddressTB
-            // 
-            this.AddressTB.Location = new System.Drawing.Point(3, 3);
-            this.AddressTB.Name = "AddressTB";
-            this.AddressTB.Size = new System.Drawing.Size(258, 20);
-            this.AddressTB.TabIndex = 3;
             // 
             // label3
             // 
@@ -162,14 +150,29 @@ namespace Restaurant.App
             this.SaveBTN.UseVisualStyleBackColor = true;
             this.SaveBTN.Click += new System.EventHandler(this.SaveCustomerBTN);
             // 
-            // BackBT
+            // FirstnameTB
             // 
-            this.BackBT.Location = new System.Drawing.Point(12, 0);
-            this.BackBT.Name = "BackBT";
-            this.BackBT.Size = new System.Drawing.Size(50, 50);
-            this.BackBT.TabIndex = 14;
-            this.BackBT.TabStop = false;
-            this.BackBT.Click += new System.EventHandler(this.GoBack);
+            this.FirstnameTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.FirstnameTB.Location = new System.Drawing.Point(3, 3);
+            this.FirstnameTB.Name = "FirstnameTB";
+            this.FirstnameTB.Size = new System.Drawing.Size(258, 20);
+            this.FirstnameTB.TabIndex = 15;
+            // 
+            // LastnameTB
+            // 
+            this.LastnameTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.LastnameTB.Location = new System.Drawing.Point(3, 3);
+            this.LastnameTB.Name = "LastnameTB";
+            this.LastnameTB.Size = new System.Drawing.Size(258, 20);
+            this.LastnameTB.TabIndex = 16;
+            // 
+            // AddressTB
+            // 
+            this.AddressTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.AddressTB.Location = new System.Drawing.Point(3, 3);
+            this.AddressTB.Name = "AddressTB";
+            this.AddressTB.Size = new System.Drawing.Size(258, 20);
+            this.AddressTB.TabIndex = 17;
             // 
             // NewCustomer
             // 
@@ -183,30 +186,30 @@ namespace Restaurant.App
             this.Load += new System.EventHandler(this.NewCustomer_Load);
             this.CustomerLayoutView.ResumeLayout(false);
             this.CustomerLayoutView.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BackBT)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BackBT)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.TextBox FirstnameTB;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.TextBox LastnameTB;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
-        private System.Windows.Forms.TextBox AddressTB;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label ErrorMessageLabel;
         private System.Windows.Forms.Button SaveBTN;
         public System.Windows.Forms.Panel CustomerLayoutView;
         private System.Windows.Forms.PictureBox BackBT;
+        private CustomSkin.BottomBorderTextBox FirstnameTB;
+        private CustomSkin.BottomBorderTextBox LastnameTB;
+        private CustomSkin.BottomBorderTextBox AddressTB;
     }
 }

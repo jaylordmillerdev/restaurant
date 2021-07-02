@@ -33,9 +33,9 @@ namespace Restaurant.App.View
         private void SetItemDetails()
         {
             CustomerInfoLB.Text = "Customer Name: " + Order.CustomerFirstname + " " + Order.CustomerLastname + " / Customer Address: " + Order.CustomerAddress;
-            CustomerInfoLB.Font = new UseCustomFont().BoldFont(8);
+            CustomerInfoLB.Font = CustomFont.Get.BoldFont(8);
             ProductInfoLB.Text = "Product: " + Order.ProductName + " / " + "Quantity: " + Order.Quantity + " / Price: " + Order.ProductPrice.ToString("0.00") + " / Total: " + (Order.Quantity * Order.ProductPrice).ToString("0.00");
-            ProductInfoLB.Font = new UseCustomFont().LightFont(8);
+            ProductInfoLB.Font = CustomFont.Get.LightFont(8);
             DeliverBT.Visible = Order.IsDelivered == 1 ? false : true;
             DeleteBT.Visible = Order.IsDelivered == 1 ? false : true;
             if (Order.IsDelivered == 1)

@@ -30,23 +30,23 @@ namespace Restaurant.App.View
         private void InitializeComponent()
         {
             this.NewProductLayoutView = new System.Windows.Forms.Panel();
+            this.BackBT = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.NameTB = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.QuantityTB = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.PriceTB = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.ErrorMessageLabel = new System.Windows.Forms.Label();
             this.SaveBTN = new System.Windows.Forms.Button();
-            this.BackBT = new System.Windows.Forms.PictureBox();
+            this.NameTB = new Restaurant.App.CustomSkin.BottomBorderTextBox();
+            this.QuantityTB = new Restaurant.App.CustomSkin.BottomBorderTextBox();
+            this.PriceTB = new Restaurant.App.CustomSkin.BottomBorderTextBox();
             this.NewProductLayoutView.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BackBT)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BackBT)).BeginInit();
             this.SuspendLayout();
             // 
             // NewProductLayoutView
@@ -63,6 +63,15 @@ namespace Restaurant.App.View
             this.NewProductLayoutView.Size = new System.Drawing.Size(674, 450);
             this.NewProductLayoutView.TabIndex = 1;
             // 
+            // BackBT
+            // 
+            this.BackBT.Location = new System.Drawing.Point(13, 3);
+            this.BackBT.Name = "BackBT";
+            this.BackBT.Size = new System.Drawing.Size(50, 50);
+            this.BackBT.TabIndex = 13;
+            this.BackBT.TabStop = false;
+            this.BackBT.Click += new System.EventHandler(this.GoBack);
+            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.NameTB);
@@ -71,13 +80,6 @@ namespace Restaurant.App.View
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(359, 24);
             this.flowLayoutPanel1.TabIndex = 8;
-            // 
-            // NameTB
-            // 
-            this.NameTB.Location = new System.Drawing.Point(3, 3);
-            this.NameTB.Name = "NameTB";
-            this.NameTB.Size = new System.Drawing.Size(258, 20);
-            this.NameTB.TabIndex = 1;
             // 
             // label1
             // 
@@ -99,14 +101,6 @@ namespace Restaurant.App.View
             this.flowLayoutPanel2.Size = new System.Drawing.Size(359, 23);
             this.flowLayoutPanel2.TabIndex = 9;
             // 
-            // QuantityTB
-            // 
-            this.QuantityTB.Location = new System.Drawing.Point(3, 3);
-            this.QuantityTB.Name = "QuantityTB";
-            this.QuantityTB.Size = new System.Drawing.Size(258, 20);
-            this.QuantityTB.TabIndex = 2;
-            this.QuantityTB.Text = "0";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -124,14 +118,6 @@ namespace Restaurant.App.View
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(334, 23);
             this.flowLayoutPanel3.TabIndex = 10;
-            // 
-            // PriceTB
-            // 
-            this.PriceTB.Location = new System.Drawing.Point(3, 3);
-            this.PriceTB.Name = "PriceTB";
-            this.PriceTB.Size = new System.Drawing.Size(258, 20);
-            this.PriceTB.TabIndex = 3;
-            this.PriceTB.Text = "0.0";
             // 
             // label3
             // 
@@ -165,14 +151,31 @@ namespace Restaurant.App.View
             this.SaveBTN.UseVisualStyleBackColor = true;
             this.SaveBTN.Click += new System.EventHandler(this.SaveProduct);
             // 
-            // BackBT
+            // NameTB
             // 
-            this.BackBT.Location = new System.Drawing.Point(13, 3);
-            this.BackBT.Name = "BackBT";
-            this.BackBT.Size = new System.Drawing.Size(50, 50);
-            this.BackBT.TabIndex = 13;
-            this.BackBT.TabStop = false;
-            this.BackBT.Click += new System.EventHandler(this.GoBack);
+            this.NameTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.NameTB.Location = new System.Drawing.Point(3, 3);
+            this.NameTB.Name = "NameTB";
+            this.NameTB.Size = new System.Drawing.Size(258, 20);
+            this.NameTB.TabIndex = 16;
+            // 
+            // QuantityTB
+            // 
+            this.QuantityTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.QuantityTB.Location = new System.Drawing.Point(3, 3);
+            this.QuantityTB.Name = "QuantityTB";
+            this.QuantityTB.Size = new System.Drawing.Size(258, 20);
+            this.QuantityTB.TabIndex = 17;
+            this.QuantityTB.Text = "0";
+            // 
+            // PriceTB
+            // 
+            this.PriceTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PriceTB.Location = new System.Drawing.Point(3, 3);
+            this.PriceTB.Name = "PriceTB";
+            this.PriceTB.Size = new System.Drawing.Size(258, 20);
+            this.PriceTB.TabIndex = 18;
+            this.PriceTB.Text = "0.0";
             // 
             // NewAndUpdateProduct
             // 
@@ -184,13 +187,13 @@ namespace Restaurant.App.View
             this.Text = "NewAndUpdateProduct";
             this.NewProductLayoutView.ResumeLayout(false);
             this.NewProductLayoutView.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BackBT)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BackBT)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -199,16 +202,16 @@ namespace Restaurant.App.View
 
         public System.Windows.Forms.Panel NewProductLayoutView;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.TextBox NameTB;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.TextBox QuantityTB;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
-        private System.Windows.Forms.TextBox PriceTB;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label ErrorMessageLabel;
         private System.Windows.Forms.Button SaveBTN;
         private System.Windows.Forms.PictureBox BackBT;
+        private CustomSkin.BottomBorderTextBox NameTB;
+        private CustomSkin.BottomBorderTextBox QuantityTB;
+        private CustomSkin.BottomBorderTextBox PriceTB;
     }
 }

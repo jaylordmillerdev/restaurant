@@ -15,13 +15,11 @@ namespace Restaurant.App.View
         List<string> Customers;
         ProductModel Product;
         Main MainView;
-        OrderModel Order;
-        public NewAndUpdateOrder(Main mainView, ProductModel product, OrderModel order)
+        public NewAndUpdateOrder(Main mainView, ProductModel product)
         {
             this.MainView = mainView;
             Customers = new CustomerService().GetAllCustomerNameAndID();
             this.Product = product;
-            this.Order = order;
             InitializeComponent();
             ShowAllCustomers();
             CreateComboboxFilter();
@@ -62,24 +60,11 @@ namespace Restaurant.App.View
         private void SaveOrderBTN(object sender, EventArgs e)
         {
             GetIdFromCustomerCBdata(CustomerCB.Text.ToString());
-            RequestResult requestStatus;
-            if (Order == null)
-            {
-                requestStatus = new OrderService().Save(
-                        customerId: GetIdFromCustomerCBdata(CustomerCB.Text.ToString()),
-                        productId: Product.ProductId,
-                        quantity: QuantityTB.Text == String.Empty? 0:int.Parse(QuantityTB.Text),
-                        isDelivered: 0);
-            }
-            else
-            {
-                requestStatus = new OrderService().Update(
-                    id: Order.Id,
-                    customerId: Order.CustomerId,
-                    productId: Order.ProductId,
-                    quantity: QuantityTB.Text == String.Empty? 0:int.Parse(QuantityTB.Text),
-                    isDelivered: Order.IsDelivered);
-            }
+            RequestResult requestStatus = new OrderService().Save(
+                    customerId: GetIdFromCustomerCBdata(CustomerCB.Text.ToString()),
+                    productId: Product.ProductId,
+                    quantity: QuantityTB.Text == String.Empty ? 0 : int.Parse(QuantityTB.Text),
+                    isDelivered: 0);
 
             if (requestStatus.isSuccess)
             {

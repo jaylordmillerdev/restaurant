@@ -30,23 +30,23 @@ namespace Restaurant.App.View
         private void InitializeComponent()
         {
             this.OrderLayoutView = new System.Windows.Forms.Panel();
+            this.BackBT = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.CustomerCB = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.QuantityTB = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.TotalTB = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.ErrorMessageLabel = new System.Windows.Forms.Label();
             this.SaveBTN = new System.Windows.Forms.Button();
-            this.BackBT = new System.Windows.Forms.PictureBox();
+            this.QuantityTB = new Restaurant.App.CustomSkin.BottomBorderTextBox();
+            this.TotalTB = new Restaurant.App.CustomSkin.BottomBorderTextBox();
             this.OrderLayoutView.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BackBT)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BackBT)).BeginInit();
             this.SuspendLayout();
             // 
             // OrderLayoutView
@@ -61,6 +61,15 @@ namespace Restaurant.App.View
             this.OrderLayoutView.Name = "OrderLayoutView";
             this.OrderLayoutView.Size = new System.Drawing.Size(674, 450);
             this.OrderLayoutView.TabIndex = 1;
+            // 
+            // BackBT
+            // 
+            this.BackBT.Location = new System.Drawing.Point(17, 2);
+            this.BackBT.Name = "BackBT";
+            this.BackBT.Size = new System.Drawing.Size(50, 50);
+            this.BackBT.TabIndex = 15;
+            this.BackBT.TabStop = false;
+            this.BackBT.Click += new System.EventHandler(this.Back);
             // 
             // flowLayoutPanel1
             // 
@@ -99,15 +108,6 @@ namespace Restaurant.App.View
             this.flowLayoutPanel2.Size = new System.Drawing.Size(334, 23);
             this.flowLayoutPanel2.TabIndex = 9;
             // 
-            // QuantityTB
-            // 
-            this.QuantityTB.Location = new System.Drawing.Point(3, 3);
-            this.QuantityTB.Name = "QuantityTB";
-            this.QuantityTB.Size = new System.Drawing.Size(258, 20);
-            this.QuantityTB.TabIndex = 2;
-            this.QuantityTB.Text = "0";
-            this.QuantityTB.TextChanged += new System.EventHandler(this.CalculateTotalTB);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -125,15 +125,6 @@ namespace Restaurant.App.View
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(334, 23);
             this.flowLayoutPanel3.TabIndex = 10;
-            // 
-            // TotalTB
-            // 
-            this.TotalTB.Location = new System.Drawing.Point(3, 3);
-            this.TotalTB.Name = "TotalTB";
-            this.TotalTB.ReadOnly = true;
-            this.TotalTB.Size = new System.Drawing.Size(258, 20);
-            this.TotalTB.TabIndex = 3;
-            this.TotalTB.Text = "0.0";
             // 
             // label3
             // 
@@ -167,14 +158,25 @@ namespace Restaurant.App.View
             this.SaveBTN.UseVisualStyleBackColor = true;
             this.SaveBTN.Click += new System.EventHandler(this.SaveOrderBTN);
             // 
-            // BackBT
+            // QuantityTB
             // 
-            this.BackBT.Location = new System.Drawing.Point(17, 2);
-            this.BackBT.Name = "BackBT";
-            this.BackBT.Size = new System.Drawing.Size(50, 50);
-            this.BackBT.TabIndex = 15;
-            this.BackBT.TabStop = false;
-            this.BackBT.Click += new System.EventHandler(this.Back);
+            this.QuantityTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.QuantityTB.Location = new System.Drawing.Point(3, 3);
+            this.QuantityTB.Name = "QuantityTB";
+            this.QuantityTB.Size = new System.Drawing.Size(258, 20);
+            this.QuantityTB.TabIndex = 17;
+            this.QuantityTB.Text = "0";
+            this.QuantityTB.TextChanged += new System.EventHandler(this.CalculateTotalTB);
+            // 
+            // TotalTB
+            // 
+            this.TotalTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TotalTB.Enabled = false;
+            this.TotalTB.Location = new System.Drawing.Point(3, 3);
+            this.TotalTB.Name = "TotalTB";
+            this.TotalTB.Size = new System.Drawing.Size(258, 20);
+            this.TotalTB.TabIndex = 18;
+            this.TotalTB.Text = "0.0";
             // 
             // NewAndUpdateOrder
             // 
@@ -186,13 +188,13 @@ namespace Restaurant.App.View
             this.Text = "NewAndUpdateOrder";
             this.OrderLayoutView.ResumeLayout(false);
             this.OrderLayoutView.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BackBT)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BackBT)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -203,14 +205,14 @@ namespace Restaurant.App.View
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.TextBox QuantityTB;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
-        private System.Windows.Forms.TextBox TotalTB;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label ErrorMessageLabel;
         private System.Windows.Forms.Button SaveBTN;
         private System.Windows.Forms.ComboBox CustomerCB;
         private System.Windows.Forms.PictureBox BackBT;
+        private CustomSkin.BottomBorderTextBox QuantityTB;
+        private CustomSkin.BottomBorderTextBox TotalTB;
     }
 }

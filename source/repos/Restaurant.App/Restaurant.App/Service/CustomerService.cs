@@ -41,8 +41,12 @@ namespace Restaurant.App.Service
                 );
             return Service.Update(data);
         }
-        public List<CustomerModel> GetAllCustomer() { return Service.FetchAll(); }
-        public List<string> GetAllCustomerNameAndID() { return Service.FetchAllCustomerNameAndId(); }
+        public List<CustomerModel> GetAllCustomer() {
+            return Service.FetchAll();
+        }
+        public List<string> GetAllCustomerNameAndID() {
+            return Service.FetchAllCustomerNameAndId();
+        }
         public Restaurant.Business.Customer.Service.CustomerService Service { get; }
     }
 }
