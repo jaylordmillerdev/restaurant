@@ -141,13 +141,18 @@ namespace Restaurant.App
             // 
             // SaveBTN
             // 
+            this.SaveBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(76)))), ((int)(((byte)(125)))));
+            this.SaveBTN.FlatAppearance.BorderSize = 0;
+            this.SaveBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SaveBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SaveBTN.ForeColor = System.Drawing.Color.White;
             this.SaveBTN.Location = new System.Drawing.Point(175, 243);
             this.SaveBTN.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.SaveBTN.Name = "SaveBTN";
             this.SaveBTN.Size = new System.Drawing.Size(334, 42);
             this.SaveBTN.TabIndex = 7;
             this.SaveBTN.Text = "Save";
-            this.SaveBTN.UseVisualStyleBackColor = true;
+            this.SaveBTN.UseVisualStyleBackColor = false;
             this.SaveBTN.Click += new System.EventHandler(this.SaveCustomerBTN);
             // 
             // FirstnameTB

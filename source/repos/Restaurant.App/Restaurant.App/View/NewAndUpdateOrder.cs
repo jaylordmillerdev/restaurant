@@ -91,5 +91,13 @@ namespace Restaurant.App.View
                 quantity: QuantityTB.Text == String.Empty? 0:int.Parse(QuantityTB.Text)
             ).Total.ToString("0.00");
         }
+
+        private void ValidateNumber(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
