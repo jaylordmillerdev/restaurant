@@ -1,25 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Restaurant.Business.Order.Model
 {
-    public class OrderModel
+    public class Order
     {
-        public int Id { get; }
-        public int CustomerId { get; }
-        public int ProductId { get; }
-        public int Quantity { get; }
-        public int IsDelivered { get; }
-        public DateTime DateCreated { get; }
-        public string ProductName { get; }
-        public float ProductPrice { get; }
-        public string CustomerFirstname { get; }
-        public string CustomerLastname { get; }
-        public string CustomerAddress { get; }
-        public OrderModel(
+        public int Id { get; set; }
+        public int CustomerId { get; set; }
+        public int ProductId { get; set; }
+        public int Quantity { get; set; }
+        public int IsDelivered { get; set; }
+        public DateTime DateCreated { get; set; }
+        public string ProductName { get; set; }
+        public float ProductPrice { get; set; }
+        public string CustomerFirstname { get; set; }
+        public string CustomerLastname { get; set; }
+        public string CustomerAddress { get; set; }
+        public Order(
             int id,
             int customerId,
             int productId,

@@ -1,12 +1,12 @@
 ﻿using Restaurant.Business.Product.Model;
 
-namespace Restaurant.Business.Product.Repository
+namespace Restaurant.Business.Product
 {
     public static class ProductDataValidation
     {
-        public static RequestResult isDataValid(ProductModel data)
+        public static RequestResult isDataValid(Model.Product data)
         {
-            if (data.Name == "")
+            if (data.Name == string.Empty)
             {
                 return new RequestResult("*Name is empty", false);
             }

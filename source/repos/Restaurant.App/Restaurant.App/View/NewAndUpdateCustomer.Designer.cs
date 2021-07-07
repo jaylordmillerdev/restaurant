@@ -32,16 +32,16 @@ namespace Restaurant.App
             this.CustomerLayoutView = new System.Windows.Forms.Panel();
             this.BackBT = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.FirstnameTB = new Restaurant.App.CustomSkin.BottomBorderTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.LastnameTB = new Restaurant.App.CustomSkin.BottomBorderTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.AddressTB = new Restaurant.App.CustomSkin.BottomBorderTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.ErrorMessageLabel = new System.Windows.Forms.Label();
             this.SaveBTN = new System.Windows.Forms.Button();
-            this.FirstnameTB = new Restaurant.App.CustomSkin.BottomBorderTextBox();
-            this.LastnameTB = new Restaurant.App.CustomSkin.BottomBorderTextBox();
-            this.AddressTB = new Restaurant.App.CustomSkin.BottomBorderTextBox();
             this.CustomerLayoutView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BackBT)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
@@ -80,6 +80,14 @@ namespace Restaurant.App
             this.flowLayoutPanel1.Size = new System.Drawing.Size(334, 24);
             this.flowLayoutPanel1.TabIndex = 8;
             // 
+            // FirstnameTB
+            // 
+            this.FirstnameTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.FirstnameTB.Location = new System.Drawing.Point(3, 3);
+            this.FirstnameTB.Name = "FirstnameTB";
+            this.FirstnameTB.Size = new System.Drawing.Size(258, 20);
+            this.FirstnameTB.TabIndex = 15;
+            // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -100,6 +108,14 @@ namespace Restaurant.App
             this.flowLayoutPanel2.Size = new System.Drawing.Size(334, 23);
             this.flowLayoutPanel2.TabIndex = 9;
             // 
+            // LastnameTB
+            // 
+            this.LastnameTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.LastnameTB.Location = new System.Drawing.Point(3, 3);
+            this.LastnameTB.Name = "LastnameTB";
+            this.LastnameTB.Size = new System.Drawing.Size(258, 20);
+            this.LastnameTB.TabIndex = 16;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -117,6 +133,14 @@ namespace Restaurant.App
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(334, 23);
             this.flowLayoutPanel3.TabIndex = 10;
+            // 
+            // AddressTB
+            // 
+            this.AddressTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.AddressTB.Location = new System.Drawing.Point(3, 3);
+            this.AddressTB.Name = "AddressTB";
+            this.AddressTB.Size = new System.Drawing.Size(258, 20);
+            this.AddressTB.TabIndex = 17;
             // 
             // label3
             // 
@@ -155,30 +179,6 @@ namespace Restaurant.App
             this.SaveBTN.UseVisualStyleBackColor = false;
             this.SaveBTN.Click += new System.EventHandler(this.SaveCustomerBTN);
             // 
-            // FirstnameTB
-            // 
-            this.FirstnameTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.FirstnameTB.Location = new System.Drawing.Point(3, 3);
-            this.FirstnameTB.Name = "FirstnameTB";
-            this.FirstnameTB.Size = new System.Drawing.Size(258, 20);
-            this.FirstnameTB.TabIndex = 15;
-            // 
-            // LastnameTB
-            // 
-            this.LastnameTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.LastnameTB.Location = new System.Drawing.Point(3, 3);
-            this.LastnameTB.Name = "LastnameTB";
-            this.LastnameTB.Size = new System.Drawing.Size(258, 20);
-            this.LastnameTB.TabIndex = 16;
-            // 
-            // AddressTB
-            // 
-            this.AddressTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.AddressTB.Location = new System.Drawing.Point(3, 3);
-            this.AddressTB.Name = "AddressTB";
-            this.AddressTB.Size = new System.Drawing.Size(258, 20);
-            this.AddressTB.TabIndex = 17;
-            // 
             // NewCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -188,7 +188,6 @@ namespace Restaurant.App
             this.Controls.Add(this.CustomerLayoutView);
             this.Name = "NewCustomer";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.NewCustomer_Load);
             this.CustomerLayoutView.ResumeLayout(false);
             this.CustomerLayoutView.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BackBT)).EndInit();

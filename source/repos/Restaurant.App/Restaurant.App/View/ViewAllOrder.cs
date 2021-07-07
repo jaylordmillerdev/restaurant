@@ -10,7 +10,7 @@ namespace Restaurant.App.View
 {
     public partial class ViewAllOrder : Form
     {
-        List<OrderModel> Orders;
+        private List<Order> _Orders;
         public ViewAllOrder()
         {
             InitializeComponent();
@@ -24,9 +24,9 @@ namespace Restaurant.App.View
         }
         public void ShowAllOrder(string startDate, string endDate)
         {
-            if (Orders != null)
+            if (_Orders != null)
             {
-                Orders.Clear();
+                _Orders.Clear();
                 layout.Controls.Clear();
             }
             if (startDate == null && endDate == null)
@@ -37,13 +37,13 @@ namespace Restaurant.App.View
             {
                 FetchOrderByDateFilter(startDate, endDate);
             }
-            foreach (OrderModel order in Orders)
+            foreach (Order order in _Orders)
             {
                 layout.Controls.Add(new OrderItem(order, this).MainPanel);
             }
         }
-        private void FetchOrder() { Orders = new OrderService().GetAllOrder(); }
-        private void FetchOrderByDateFilter(string startDate, string endDate) { Orders = new OrderService().GetAllOrderFromDateFilter(startDate, endDate); }
+        private void FetchOrder() { _Orders = new OrderService().GetAllOrder(); }
+        private void FetchOrderByDateFilter(string startDate, string endDate) { _Orders = new OrderService().GetAllOrderFromDateFilter(startDate, endDate); }
 
         private void StartDateChangeValue(object sender, System.EventArgs e)
         {

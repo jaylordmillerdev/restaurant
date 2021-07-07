@@ -9,7 +9,7 @@ namespace Restaurant.Business.Order.Repository
 {
     public class NewOrderDataValidation
     {
-        public static RequestResult isDataValid(NewOrderModel data)
+        public static RequestResult isDataValid(NewOrder data)
         {
             if (data.Quantity == 0)
             {

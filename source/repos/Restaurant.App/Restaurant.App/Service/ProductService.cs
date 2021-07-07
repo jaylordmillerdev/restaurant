@@ -14,7 +14,7 @@ namespace Restaurant.App.Service
         }
         public RequestResult Save(string name, int quantity, float price)
         {
-            ProductModel data = new ProductModel(
+            Product data = new Product(
                     id: 0,
                     name: name,
                     quantity: quantity,
@@ -29,7 +29,7 @@ namespace Restaurant.App.Service
         }
         public RequestResult Update(string name, int quantity, float price, int id)
         {
-            ProductModel data = new ProductModel(
+            Product data = new Product(
                     id: id,
                     name: name,
                     quantity: quantity,
@@ -38,10 +38,10 @@ namespace Restaurant.App.Service
                 );
             return Service.Update(data);
         }
-        public List<ProductModel> GetAllProduct() {
+        public List<Product> GetAllProduct() {
             return Service.FetchAll();
         }
-        public List<ProductModel> FilterProduct(string filter) {
+        public List<Product> FilterProduct(string filter) {
             return Service.Filter(filter);
         }
         public Restaurant.Business.Product.Service.ProductService Service { get; }

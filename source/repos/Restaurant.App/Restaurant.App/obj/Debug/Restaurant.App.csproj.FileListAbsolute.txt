@@ -21,5 +21,5 @@ F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\bin\Debug\FontAw
 F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\obj\Debug\Restaurant.App.View.NewAndUpdateOrder.resources
 F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\obj\Debug\Restaurant.App.View.ViewAllOrder.resources
 F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\obj\Debug\Restaurant.App.View.OrderItem.resources
-F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\bin\Debug\font\fontawesome-webfont.ttf
 F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\bin\Debug\FontAwesomeNet.dll
+F:\Miller\restaurant\source\repos\Restaurant.App\Restaurant.App\bin\Debug\Utilities\font\fontawesome-webfont.ttf

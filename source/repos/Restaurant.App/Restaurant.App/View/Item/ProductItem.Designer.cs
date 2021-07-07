@@ -55,6 +55,7 @@ namespace Restaurant.App.View
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Size = new System.Drawing.Size(674, 59);
             this.MainPanel.TabIndex = 2;
+            this.MainPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShowDetails);
             this.MainPanel.MouseEnter += new System.EventHandler(this.MainPanelEnter);
             this.MainPanel.MouseLeave += new System.EventHandler(this.MainPanelLeave);
             // 

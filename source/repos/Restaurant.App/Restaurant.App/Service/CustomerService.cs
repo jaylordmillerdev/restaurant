@@ -17,7 +17,7 @@ namespace Restaurant.App.Service
         }
         public RequestResult Save(string firstname, string lastname, string address)
         {
-            CustomerModel data = new CustomerModel(
+            Customer data = new Customer(
                     id: 0,
                     firstname: firstname,
                     lastname: lastname,
@@ -32,7 +32,7 @@ namespace Restaurant.App.Service
         }
         public RequestResult Update(string firstname, string lastname, string address, int id)
         {
-            CustomerModel data = new CustomerModel(
+            Customer data = new Customer(
                     id: id,
                     firstname: firstname,
                     lastname: lastname,
@@ -41,7 +41,7 @@ namespace Restaurant.App.Service
                 );
             return Service.Update(data);
         }
-        public List<CustomerModel> GetAllCustomer() {
+        public List<Customer> GetAllCustomer() {
             return Service.FetchAll();
         }
         public List<string> GetAllCustomerNameAndID() {

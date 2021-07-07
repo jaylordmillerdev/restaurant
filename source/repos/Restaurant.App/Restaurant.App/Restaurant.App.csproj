@@ -53,17 +53,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CONFIG.cs" />
-    <Compile Include="ConvertListOfStringToDataTable.cs" />
+    <Compile Include="Enum\PageTracker.cs" />
+    <Compile Include="Shared\CONFIG.cs" />
+    <Compile Include="Shared\ConvertListOfStringToDataTable.cs" />
     <Compile Include="CustomSkin\BottomBorderTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="OrderTotalModel.cs" />
-    <Compile Include="IServiceConnection.cs" />
+    <Compile Include="Model\OrderTotal.cs" />
+    <Compile Include="Interface\IServiceConnection.cs" />
     <Compile Include="Service\CustomerService.cs" />
     <Compile Include="Service\OrderService.cs" />
     <Compile Include="Service\ProductService.cs" />
-    <Compile Include="UseCustomFont.cs" />
+    <Compile Include="Shared\IntParse.cs" />
+    <Compile Include="Shared\ShowPopUp.cs" />
+    <Compile Include="Shared\UseCustomFont.cs" />
     <Compile Include="View\Item\CustomerItem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,14 +168,14 @@
     <EmbeddedResource Include="View\ViewAllProduct.resx">
       <DependentUpon>ViewAllProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="assets\font\Montserrat-Bold.ttf" />
-    <None Include="assets\font\Montserrat-Light.ttf" />
-    <None Include="assets\font\Montserrat-Regular.ttf" />
-    <Content Include="assets\image\user.png" />
-    <Content Include="assets\image\icon_large.png" />
-    <Content Include="assets\image\icon_small.png" />
-    <Content Include="assets\image\icon_small_white.png" />
-    <Content Include="font\fontawesome-webfont.ttf">
+    <None Include="Utilities\assets\font\Montserrat-Bold.ttf" />
+    <None Include="Utilities\assets\font\Montserrat-Light.ttf" />
+    <None Include="Utilities\assets\font\Montserrat-Regular.ttf" />
+    <Content Include="Utilities\assets\image\user.png" />
+    <Content Include="Utilities\assets\image\icon_large.png" />
+    <Content Include="Utilities\assets\image\icon_small.png" />
+    <Content Include="Utilities\assets\image\icon_small_white.png" />
+    <Content Include="Utilities\font\fontawesome-webfont.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="packages.config" />
@@ -196,7 +199,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="assets\animation\" />
+    <Folder Include="Utilities\assets\animation\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

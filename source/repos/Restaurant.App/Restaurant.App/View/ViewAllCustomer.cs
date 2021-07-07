@@ -10,11 +10,11 @@ namespace Restaurant.App.View
 {
     public partial class ViewAllCustomer : Form
     {
-        List<CustomerModel> Customers;
-        Main MainView;
+        private List<Customer> _Customers;
+        private Main _MainView;
         public ViewAllCustomer(Main MainView)
         {
-            this.MainView = MainView;
+            this._MainView = MainView;
             InitializeComponent();
             ShowAllCustomer();
             GenerateIcons();
@@ -25,27 +25,27 @@ namespace Restaurant.App.View
         }
         public void ShowAllCustomer()
         {
-            if (Customers != null)
+            if (_Customers != null)
             {
-                Customers.Clear();
+                _Customers.Clear();
                 layout.Controls.Clear();
             }
             FetchCustomer();
-            foreach (CustomerModel customer in Customers)
+            foreach (Customer customer in _Customers)
             {
                 layout.Controls.Add(new CustomerItem(customer, this).MainPanel);
             }
         }
 
-        public void UpdateItem(CustomerModel customer)
+        public void UpdateItem(Customer customer)
         {
-            MainView.GoToUpdateCustomerPage(customer);
+            _MainView.GoToUpdateCustomerPage(customer);
         }
 
         private void NewCustomerBT(object sender, EventArgs e)
         {
-            MainView.GoToNewCustomerPage();
+            _MainView.GoToNewCustomerPage();
         }
-        private void FetchCustomer() { Customers = new CustomerService().GetAllCustomer(); }
+        private void FetchCustomer() { _Customers = new CustomerService().GetAllCustomer(); }
     }
 }

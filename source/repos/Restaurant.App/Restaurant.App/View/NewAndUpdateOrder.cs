@@ -1,5 +1,6 @@
 ﻿using FontAwesome.Sharp;
 using Restaurant.App.Service;
+using Restaurant.App.Shared;
 using Restaurant.Business;
 using Restaurant.Business.Order.Model;
 using Restaurant.Business.Product.Model;
@@ -12,14 +13,14 @@ namespace Restaurant.App.View
 {
     public partial class NewAndUpdateOrder : Form
     {
-        List<string> Customers;
-        ProductModel Product;
-        Main MainView;
-        public NewAndUpdateOrder(Main mainView, ProductModel product)
+        private List<string> _Customers;
+        private Product _Product;
+        private Main _MainView;
+        public NewAndUpdateOrder(Main mainView, Product product)
         {
-            this.MainView = mainView;
-            Customers = new CustomerService().GetAllCustomerNameAndID();
-            this.Product = product;
+            this._MainView = mainView;
+            _Customers = new CustomerService().GetAllCustomerNameAndID();
+            this._Product = product;
             InitializeComponent();
             ShowAllCustomers();
             CreateComboboxFilter();
@@ -32,10 +33,7 @@ namespace Restaurant.App.View
         }
         private void ShowAllCustomers()
         {
-            foreach (string customer in Customers)
-            {
-                CustomerCB.Items.Add(customer);
-            }
+            CustomerCB.Items.AddRange(_Customers.ToArray());
         }
         private void CreateComboboxFilter()
         {
@@ -43,40 +41,61 @@ namespace Restaurant.App.View
             CustomerCB.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             CustomerCB.AutoCompleteSource = AutoCompleteSource.ListItems;
 
-            CustomerCB.DataSource = ConvertListOfStringToDataTable.Parse(data: Customers, ColumnName: columnName);
+            CustomerCB.DataSource = ConvertListOfStringToDataTable.Parse(data: _Customers, ColumnName: columnName);
             CustomerCB.ValueMember = columnName;
             CustomerCB.DisplayMember = columnName;
         }
         private void Back(object sender, EventArgs e)
         {
-            MainView.GoToProductsList();
+            _MainView.GoToProductsList();
         }
         private int GetIdFromCustomerCBdata(string customer)
         {
             string[] split = customer.Split('-');
-            Console.WriteLine(split[split.Length - 1].Replace("#", "").Trim());
-            return int.Parse(split[split.Length - 1].Replace("#", "").Trim());
+            return IntParse.Parse(split[split.Length - 1].Replace("#", "").Trim(), 0);
+        }
+        private RequestResult ValidateInputField()
+        {
+            if (CustomerCB.Text.ToString() == string.Empty)
+            {
+                return new RequestResult("Customer is required", false);
+            }
+            if (QuantityTB.Text == string.Empty)
+            {
+                return new RequestResult("Quantity is required", false);
+            }
+            return new RequestResult("Inputs is valid", true);
         }
         private void SaveOrderBTN(object sender, EventArgs e)
         {
-            GetIdFromCustomerCBdata(CustomerCB.Text.ToString());
-            RequestResult requestStatus = new OrderService().Save(
-                    customerId: GetIdFromCustomerCBdata(CustomerCB.Text.ToString()),
-                    productId: Product.ProductId,
-                    quantity: QuantityTB.Text == String.Empty ? 0 : int.Parse(QuantityTB.Text),
-                    isDelivered: 0);
-
-            if (requestStatus.isSuccess)
+            RequestResult validate = ValidateInputField();
+            if (!validate.isSuccess)
             {
-                ClearFormText();
-                this.ErrorMessageLabel.ForeColor = Color.Green;
+                ErrorMessageLabel.Visible = true;
+                this.ErrorMessageLabel.ForeColor = Color.Red;
+                ErrorMessageLabel.Text = validate.message;
             }
             else
             {
-                this.ErrorMessageLabel.ForeColor = Color.Red;
+                GetIdFromCustomerCBdata(CustomerCB.Text.ToString());
+                RequestResult requestStatus = new OrderService().Save(
+                        customerId: GetIdFromCustomerCBdata(CustomerCB.Text.ToString()),
+                        productId: _Product.ProductId,
+                        quantity: QuantityTB.Text == string.Empty ? 0 : IntParse.Parse(QuantityTB.Text, 0),
+                        isDelivered: 0);
+
+                if (requestStatus.isSuccess)
+                {
+                    ClearFormText();
+                    this.ErrorMessageLabel.ForeColor = Color.Green;
+                }
+                else
+                {
+                    this.ErrorMessageLabel.ForeColor = Color.Red;
+                }
+                ErrorMessageLabel.Text = requestStatus.message;
+                ErrorMessageLabel.Visible = true;
             }
-            ErrorMessageLabel.Text = requestStatus.message;
-            ErrorMessageLabel.Visible = true;
         }
         public void ClearFormText()
         {
@@ -86,9 +105,9 @@ namespace Restaurant.App.View
 
         private void CalculateTotalTB(object sender, EventArgs e)
         {
-            TotalTB.Text = new OrderTotalModel(
-                price: Product.Price,
-                quantity: QuantityTB.Text == String.Empty? 0:int.Parse(QuantityTB.Text)
+            TotalTB.Text = new OrderTotal(
+                price: _Product.Price,
+                quantity: QuantityTB.Text == String.Empty? 0: IntParse.Parse(QuantityTB.Text, 0)
             ).Total.ToString("0.00");
         }
 

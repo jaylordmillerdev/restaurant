@@ -14,7 +14,7 @@ namespace Restaurant.App.Service
         }
         public RequestResult Save(int customerId, int productId, int quantity, int isDelivered)
         {
-            NewOrderModel data = new NewOrderModel(
+            NewOrder data = new NewOrder(
                     id: 0,
                     customerId: customerId,
                     productId: productId,
@@ -34,7 +34,7 @@ namespace Restaurant.App.Service
         }
         public RequestResult Update(int id, int customerId, int productId, int quantity, int isDelivered)
         {
-            NewOrderModel data = new NewOrderModel(
+            NewOrder data = new NewOrder(
                     id: id,
                     customerId: customerId,
                     productId: productId,
@@ -44,10 +44,10 @@ namespace Restaurant.App.Service
                 );
             return Service.Update(data);
         }
-        public List<OrderModel> GetAllOrder() { 
+        public List<Order> GetAllOrder() { 
             return Service.FetchAll(); 
         }
-        public List<OrderModel> GetAllOrderFromDateFilter(string startDate, string endDate) {
+        public List<Order> GetAllOrderFromDateFilter(string startDate, string endDate) {
             return Service.FetchAllByDateFilter(start: startDate, end: endDate);
         }
         public Restaurant.Business.Order.Service.OrderService Service { get; }

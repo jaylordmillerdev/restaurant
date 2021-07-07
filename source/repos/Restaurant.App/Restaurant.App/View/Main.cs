@@ -3,23 +3,16 @@ using Restaurant.Business.Customer.Model;
 using Restaurant.Business.Product.Model;
 using System;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using static Restaurant.App.Enum.PageTracker;
 
 namespace Restaurant.App
 {
     public partial class Main : Form
     {
-        ViewAllCustomer ShowAllCustomer;
-        ViewAllProduct ShowAllProduct;
-        ViewAllOrder ShowAllOrder;
-        enum Page
-        {
-            Main,
-            Customer,
-            Product,
-            Order
-        }
+        private ViewAllCustomer _ShowAllCustomer;
+        private ViewAllProduct _ShowAllProduct;
+        private ViewAllOrder _ShowAllOrder;
         public Main()
         {
             InitializeComponent();
@@ -31,8 +24,8 @@ namespace Restaurant.App
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             AppDescriptionLabel.Text = CONFIG.Instance.APP_DESCRIPTION;
 
-            HeaderIcon.Image = Image.FromFile("../../assets/image/icon_small_white.png");
-            IconLarge.Image = Image.FromFile("../../assets/image/icon_large.png");
+            HeaderIcon.Image = Image.FromFile("../../Utilities/assets/image/icon_small_white.png");
+            IconLarge.Image = Image.FromFile("../../Utilities/assets/image/icon_large.png");
         }
         private void SetFont()
         {
@@ -108,7 +101,7 @@ namespace Restaurant.App
             NewAndUpdateProduct NewProduct = new NewAndUpdateProduct(this, null);
             FunctionsView.Controls.Add(NewProduct.NewProductLayoutView);
         }
-        public void GoToUpdateProductPage(ProductModel product)
+        public void GoToUpdateProductPage(Product product)
         {
             FunctionsView.Controls.Clear();
             NewAndUpdateProduct UpdateProduct = new NewAndUpdateProduct(this, product);
@@ -120,7 +113,7 @@ namespace Restaurant.App
             NewCustomer newCustomerView = new NewCustomer(this, null);
             FunctionsView.Controls.Add(newCustomerView.CustomerLayoutView);
         }
-        public void GoToUpdateCustomerPage(CustomerModel customer)
+        public void GoToUpdateCustomerPage(Customer customer)
         {
             FunctionsView.Controls.Clear();
             NewCustomer newCustomerView = new NewCustomer(this, customer);
@@ -129,18 +122,18 @@ namespace Restaurant.App
         public void GoToCustomersList()
         {
             FunctionsView.Controls.Clear();
-            ShowAllCustomer = new ViewAllCustomer(this);
-            FunctionsView.Controls.Add(ShowAllCustomer.CustomerViewLayout);
+            _ShowAllCustomer = new ViewAllCustomer(this);
+            FunctionsView.Controls.Add(_ShowAllCustomer.CustomerViewLayout);
             SetMenuBarFocus(Page.Customer);
         }
         public void GoToProductsList()
         {
             FunctionsView.Controls.Clear();
-            ShowAllProduct = new ViewAllProduct(this);
-            FunctionsView.Controls.Add(ShowAllProduct.ProductViewLayout);
+            _ShowAllProduct = new ViewAllProduct(this);
+            FunctionsView.Controls.Add(_ShowAllProduct.ProductViewLayout);
             SetMenuBarFocus(Page.Product);
         }
-        public void GoToNewOrderPage(ProductModel product)
+        public void GoToNewOrderPage(Product product)
         {
             FunctionsView.Controls.Clear();
             NewAndUpdateOrder newOrder = new NewAndUpdateOrder(this, product);
@@ -149,8 +142,8 @@ namespace Restaurant.App
         public void GoToOrdersList()
         {
             FunctionsView.Controls.Clear();
-            ShowAllOrder = new ViewAllOrder();
-            FunctionsView.Controls.Add(ShowAllOrder.OrderViewLayout);
+            _ShowAllOrder = new ViewAllOrder();
+            FunctionsView.Controls.Add(_ShowAllOrder.OrderViewLayout);
             SetMenuBarFocus(Page.Order);
         }
 

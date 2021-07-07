@@ -1,5 +1,6 @@
 ﻿using FontAwesome.Sharp;
 using Restaurant.App.Service;
+using Restaurant.App.Shared;
 using Restaurant.Business;
 using Restaurant.Business.Product.Model;
 using System;
@@ -10,15 +11,15 @@ namespace Restaurant.App.View
 {
     public partial class NewAndUpdateProduct : Form
     {
-        ProductModel Product;
-        Main MainView;
-        public NewAndUpdateProduct(Main mainView, ProductModel product)
+        private Product _Product;
+        private Main _MainView;
+        public NewAndUpdateProduct(Main mainView, Product product)
         {
-            this.MainView = mainView;
-            this.Product = product;
+            this._MainView = mainView;
+            this._Product = product;
             InitializeComponent();
             ErrorMessageLabel.Visible = false;
-            if (Product != null)
+            if (_Product != null)
             {
                 ShowCustomerData();
             }
@@ -29,55 +30,81 @@ namespace Restaurant.App.View
         {
             BackBT.Image = IconChar.Backspace.ToBitmap(iconFont: IconFont.Auto, size: 40, color: CONFIG.Instance.MAIN_COLOR);
         }
+        private RequestResult ValidateInputField()
+        {
+            if (NameTB.Text == string.Empty)
+            {
+                return new RequestResult("Name is required", false);
+            }
+            if (QuantityTB.Text == string.Empty)
+            {
+                return new RequestResult("Quantity is required", false);
+            }
+            if (PriceTB.Text == string.Empty)
+            {
+                return new RequestResult("Price is required", false);
+            }
+            return new RequestResult("Inputs is valid", true);
+        }
         private void SaveProduct(object sender, EventArgs e)
         {
-            RequestResult requestStatus;
-            if (Product == null)
+            RequestResult validate = ValidateInputField();
+            if (!validate.isSuccess)
             {
-                requestStatus = new ProductService().Save(
-                        name: NameTB.Text,
-                        quantity: QuantityTB.Text == String.Empty? 0:int.Parse(QuantityTB.Text),
-                        price: QuantityTB.Text == String.Empty ? 0:float.Parse(PriceTB.Text));
-            }
-            else
-            {
-                requestStatus = new ProductService().Update(
-                        id: Product.ProductId,
-                        name: NameTB.Text,
-                        quantity: int.Parse(QuantityTB.Text),
-                        price: float.Parse(PriceTB.Text)
-                    );
-            }
-
-            if (requestStatus.isSuccess)
-            {
-                ClearFormText();
-                this.ErrorMessageLabel.ForeColor = Color.Green;
-            }
-            else
-            {
+                ErrorMessageLabel.Visible = true;
                 this.ErrorMessageLabel.ForeColor = Color.Red;
+                ErrorMessageLabel.Text = validate.message;
             }
-            ErrorMessageLabel.Text = requestStatus.message;
-            ErrorMessageLabel.Visible = true;
+            else
+            {
+                RequestResult requestStatus;
+                if (_Product == null)
+                {
+                    requestStatus = new ProductService().Save(
+                            name: NameTB.Text,
+                            quantity: QuantityTB.Text == string.Empty ? 0 : IntParse.Parse(QuantityTB.Text, 0),
+                            price: QuantityTB.Text == string.Empty ? 0 : float.Parse(PriceTB.Text));
+                }
+                else
+                {
+                    requestStatus = new ProductService().Update(
+                            id: _Product.ProductId,
+                            name: NameTB.Text,
+                            quantity: IntParse.Parse(QuantityTB.Text, 0),
+                            price: float.Parse(PriceTB.Text)
+                        );
+                }
+
+                if (requestStatus.isSuccess)
+                {
+                    ClearFormText();
+                    this.ErrorMessageLabel.ForeColor = Color.Green;
+                }
+                else
+                {
+                    this.ErrorMessageLabel.ForeColor = Color.Red;
+                }
+                ErrorMessageLabel.Text = requestStatus.message;
+                ErrorMessageLabel.Visible = true;
+
+            }
         }
         public void ClearFormText()
         {
-            NameTB.Text = String.Empty;
+            NameTB.Text = string.Empty;
             QuantityTB.Text = "0";
             PriceTB.Text = "0.0";
             ErrorMessageLabel.Visible = false;
         }
         private void ShowCustomerData()
         {
-            NameTB.Text = Product.Name;
-            QuantityTB.Text = Product.Quantity.ToString();
-            PriceTB.Text = Product.Price.ToString();
+            NameTB.Text = _Product.Name;
+            QuantityTB.Text = _Product.Quantity.ToString();
+            PriceTB.Text = _Product.Price.ToString();
         }
-
         private void GoBack(object sender, EventArgs e)
         {
-            MainView.GoToProductsList();
+            _MainView.GoToProductsList();
         }
 
         private void ValidateQuantity(object sender, KeyPressEventArgs e)

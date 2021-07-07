@@ -1,8 +1,10 @@
 ﻿using FontAwesome.Sharp;
 using Restaurant.App.Service;
+using Restaurant.App.Shared;
 using Restaurant.Business;
 using Restaurant.Business.Order.Model;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -10,15 +12,15 @@ namespace Restaurant.App.View
 {
     public partial class OrderItem : Form
     {
-        Color FocusColor = ColorTranslator.FromHtml("#ebfaff");
-        Color UnfocusColor = Color.White;
-        OrderModel Order;
-        RequestResult requestStatus;
-        ViewAllOrder Main;
-        public OrderItem(OrderModel order, ViewAllOrder main)
+        private Color _FocusColor = ColorTranslator.FromHtml("#ebfaff");
+        private Color _UnfocusColor = Color.White;
+        private Order _Order;
+        private RequestResult _RequestStatus;
+        private ViewAllOrder _Main;
+        public OrderItem(Order order, ViewAllOrder main)
         {
-            this.Order = order;
-            this.Main = main;
+            this._Order = order;
+            this._Main = main;
             InitializeComponent();
             SetHoverContent();
             SetItemDetails();
@@ -32,23 +34,23 @@ namespace Restaurant.App.View
         }
         private void SetItemDetails()
         {
-            CustomerInfoLB.Text = "Customer Name: " + Order.CustomerFirstname + " " + Order.CustomerLastname + " / Customer Address: " + Order.CustomerAddress;
+            CustomerInfoLB.Text = "Customer Name: " + _Order.CustomerFirstname + " " + _Order.CustomerLastname + " / Customer Address: " + _Order.CustomerAddress;
             CustomerInfoLB.Font = CustomFont.Get.BoldFont(8);
-            ProductInfoLB.Text = "Product: " + Order.ProductName + " / " + "Quantity: " + Order.Quantity + " / Price: " + Order.ProductPrice.ToString("0.00") + " / Total: " + (Order.Quantity * Order.ProductPrice).ToString("0.00");
+            ProductInfoLB.Text = "Product: " + _Order.ProductName + " / " + "Quantity: " + _Order.Quantity + " / Price: " + _Order.ProductPrice.ToString("0.00") + " / Total: " + (_Order.Quantity * _Order.ProductPrice).ToString("0.00");
             ProductInfoLB.Font = CustomFont.Get.LightFont(8);
-            DeliverBT.Visible = Order.IsDelivered == 1 ? false : true;
-            DeleteBT.Visible = Order.IsDelivered == 1 ? false : true;
-            if (Order.IsDelivered == 1)
+            DeliverBT.Visible = _Order.IsDelivered == 1 ? false : true;
+            DeleteBT.Visible = _Order.IsDelivered == 1 ? false : true;
+            if (_Order.IsDelivered == 1)
             {
-                FocusColor = ColorTranslator.FromHtml("#99f0b1");
-                UnfocusColor = ColorTranslator.FromHtml("#b5ffc9");
+                _FocusColor = ColorTranslator.FromHtml("#99f0b1");
+                _UnfocusColor = ColorTranslator.FromHtml("#b5ffc9");
             }
             else
             {
-                FocusColor = ColorTranslator.FromHtml("#e0535a");
-                UnfocusColor = ColorTranslator.FromHtml("#ff9ea3");
+                _FocusColor = ColorTranslator.FromHtml("#e0535a");
+                _UnfocusColor = ColorTranslator.FromHtml("#ff9ea3");
             }
-            MainPanel.BackColor = UnfocusColor;
+            MainPanel.BackColor = _UnfocusColor;
         }
         private void SetHoverContent()
         {
@@ -63,11 +65,28 @@ namespace Restaurant.App.View
                 {
                     FocusItem(false);
                 };
+                component.MouseDown += (sender, eventArgs) =>
+                {
+                    ShowDetails();
+                };
             }
+        }
+        private void ShowDetails()
+        {
+            Dictionary<string, string> data = new Dictionary<string, string>(){
+                {"Order By", _Order.CustomerFirstname+" "+_Order.CustomerFirstname },
+                {"Product Name", _Order.ProductName },
+                {"Product Price", _Order.ProductPrice.ToString("0.00") },
+                {"Quantity Order", _Order.Quantity.ToString() },
+                {"Total", (_Order.Quantity*_Order.ProductPrice).ToString() },
+            };
+            new ShowPopUp(
+                title: $"Order#-{_Order.Id}",
+                messageData: data);
         }
         private void FocusItem(bool isFocus)
         {
-            MainPanel.BackColor = isFocus ? FocusColor : UnfocusColor;
+            MainPanel.BackColor = isFocus ? _FocusColor : _UnfocusColor;
             Splitter.Visible = isFocus;
         }
 
@@ -83,16 +102,21 @@ namespace Restaurant.App.View
 
         private void DeliverItem(object sender, EventArgs e)
         {
-            requestStatus = new OrderService().DeliverOrder(
-                        orderId: Order.Id,
-                        quantity: Order.Quantity);
-            Main.ShowAllOrder(null, null);
+            _RequestStatus = new OrderService().DeliverOrder(
+                        orderId: _Order.Id,
+                        quantity: _Order.Quantity);
+            _Main.ShowAllOrder(null, null);
         }
 
         private void Cancel(object sender, EventArgs e)
         {
-            requestStatus = new OrderService().Delete(id: Order.Id);
-            Main.ShowAllOrder(null, null);
+            _RequestStatus = new OrderService().Delete(id: _Order.Id);
+            _Main.ShowAllOrder(null, null);
+        }
+
+        private void ShowDetails(object sender, MouseEventArgs e)
+        {
+            ShowDetails();
         }
     }
 }

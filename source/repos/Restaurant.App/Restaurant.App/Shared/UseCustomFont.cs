@@ -24,7 +24,7 @@ namespace Restaurant.App
         PrivateFontCollection LightFontData;
         public Font RegularFontLage(int size)
         {
-            string path = "../../assets/font/Montserrat-Regular.ttf";
+            string path = "../../Utilities/assets/font/Montserrat-Regular.ttf";
             if (RegularFontData == null)
             {
                 RegularFontData = new PrivateFontCollection();
@@ -34,7 +34,7 @@ namespace Restaurant.App
         }
         public Font BoldFont(int size)
         {
-            string path = "../../assets/font/Montserrat-Bold.ttf";
+            string path = "../../Utilities/assets/font/Montserrat-Bold.ttf";
             if (BoldFontData == null)
             {
                 BoldFontData = new PrivateFontCollection();
@@ -44,7 +44,7 @@ namespace Restaurant.App
         }
         public Font LightFont(int size)
         {
-            string path = "../../assets/font/Montserrat-Light.ttf";
+            string path = "../../Utilities/assets/font/Montserrat-Light.ttf";
             if (LightFontData == null)
             {
                 LightFontData = new PrivateFontCollection();

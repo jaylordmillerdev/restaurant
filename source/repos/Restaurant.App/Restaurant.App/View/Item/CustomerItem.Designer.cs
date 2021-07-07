@@ -31,14 +31,14 @@ namespace Restaurant.App.View
         {
             this.CustomerNameLB = new System.Windows.Forms.Label();
             this.MainPanel = new System.Windows.Forms.Panel();
+            this.CustomerIcon = new System.Windows.Forms.PictureBox();
             this.EditBT = new System.Windows.Forms.PictureBox();
             this.DeleteBT = new System.Windows.Forms.PictureBox();
             this.Splitter = new System.Windows.Forms.Splitter();
-            this.CustomerIcon = new System.Windows.Forms.PictureBox();
             this.MainPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CustomerIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EditBT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DeleteBT)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CustomerIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // CustomerNameLB
@@ -62,8 +62,17 @@ namespace Restaurant.App.View
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Size = new System.Drawing.Size(674, 40);
             this.MainPanel.TabIndex = 1;
+            this.MainPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShowDetails);
             this.MainPanel.MouseEnter += new System.EventHandler(this.MainPanelEnter);
             this.MainPanel.MouseLeave += new System.EventHandler(this.MainPanelLeave);
+            // 
+            // CustomerIcon
+            // 
+            this.CustomerIcon.Location = new System.Drawing.Point(17, 11);
+            this.CustomerIcon.Name = "CustomerIcon";
+            this.CustomerIcon.Size = new System.Drawing.Size(20, 20);
+            this.CustomerIcon.TabIndex = 10;
+            this.CustomerIcon.TabStop = false;
             // 
             // EditBT
             // 
@@ -92,14 +101,6 @@ namespace Restaurant.App.View
             this.Splitter.TabIndex = 6;
             this.Splitter.TabStop = false;
             // 
-            // CustomerIcon
-            // 
-            this.CustomerIcon.Location = new System.Drawing.Point(17, 11);
-            this.CustomerIcon.Name = "CustomerIcon";
-            this.CustomerIcon.Size = new System.Drawing.Size(20, 20);
-            this.CustomerIcon.TabIndex = 10;
-            this.CustomerIcon.TabStop = false;
-            // 
             // CustomerItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -111,9 +112,9 @@ namespace Restaurant.App.View
             this.Text = "Form1";
             this.MainPanel.ResumeLayout(false);
             this.MainPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CustomerIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EditBT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DeleteBT)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CustomerIcon)).EndInit();
             this.ResumeLayout(false);
 
         }

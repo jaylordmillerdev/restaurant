@@ -3,23 +3,18 @@ using Restaurant.App.Service;
 using Restaurant.Business.Product.Model;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Restaurant.App.View
 {
     public partial class ViewAllProduct : Form
     {
-        List<ProductModel> Products;
-        Main MainView;
+        private List<Product> _Products;
+        private Main _MainView;
         public ViewAllProduct(Main main)
         {
-            MainView = main;
+            _MainView = main;
             InitializeComponent();
             ShowAllProduct();
             GenerateIcons();
@@ -31,7 +26,7 @@ namespace Restaurant.App.View
         }
         private void NewProductBTN(object sender, EventArgs e)
         {
-            MainView.GoToNewProductPage();
+            _MainView.GoToNewProductPage();
         }
         public void ShowAllProduct()
         {
@@ -41,35 +36,35 @@ namespace Restaurant.App.View
         }
         private void ClearProducList()
         {
-            if (Products != null)
+            if (_Products != null)
             {
-                Products.Clear();
+                _Products.Clear();
                 layout.Controls.Clear();
             }
         }
         private void AddFetchProduct()
         {
-            foreach (ProductModel product in Products)
+            foreach (Product product in _Products)
             {
                 layout.Controls.Add(new ProductItem(product, this).MainPanel);
             }
         }
-        public void UpdateItem(ProductModel product)
+        public void UpdateItem(Product product)
         {
-            MainView.GoToUpdateProductPage(product);
+            _MainView.GoToUpdateProductPage(product);
         }
 
-        public void OrderItem(ProductModel product)
+        public void OrderItem(Product product)
         {
-            MainView.GoToNewOrderPage(product);
+            _MainView.GoToNewOrderPage(product);
         }
 
-        private void FetchProduct() { Products = new ProductService().GetAllProduct(); }
+        private void FetchProduct() { _Products = new ProductService().GetAllProduct(); }
 
         private void FilterProduct(object sender, EventArgs e)
         {
             ClearProducList();
-            Products = new ProductService().FilterProduct(FilterProductNameTB.Text);
+            _Products = new ProductService().FilterProduct(FilterProductNameTB.Text);
             AddFetchProduct();
         }
     }

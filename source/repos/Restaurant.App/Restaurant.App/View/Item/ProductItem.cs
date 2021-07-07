@@ -5,19 +5,21 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
+using Restaurant.App.Shared;
+using System.Collections.Generic;
 
 namespace Restaurant.App.View
 {
     public partial class ProductItem : Form
     {
-        Color FocusColor = ColorTranslator.FromHtml("#ebfaff");
-        Color UnfocusColor = Color.White;
-        ProductModel Product;
-        ViewAllProduct Main;
-        public ProductItem(ProductModel product, ViewAllProduct main)
+        private Color _FocusColor = ColorTranslator.FromHtml("#ebfaff");
+        private Color _UnfocusColor = Color.White;
+        private Product _Product;
+        private ViewAllProduct _Main;
+        public ProductItem(Product product, ViewAllProduct main)
         {
-            this.Product = product;
-            this.Main = main;
+            this._Product = product;
+            this._Main = main;
             InitializeComponent();
             SetHoverContent();
             ProductNameLB.Text = product.Name+ " (₱" + product.Price.ToString("0.00")+")";
@@ -47,24 +49,38 @@ namespace Restaurant.App.View
                 {
                     FocusItem(false);
                 };
+                component.MouseDown += (sender, eventArgs) =>
+                {
+                    ShowDetails();
+                };
             }
         }
-
+        private void ShowDetails()
+        {
+            Dictionary<string, string> data = new Dictionary<string, string>(){
+                {"Product Name", _Product.Name },
+                {"Price", _Product.Price.ToString("0.00") },
+                {"Quantity Left", _Product.Quantity.ToString() }
+            };
+            new ShowPopUp(
+                title: $"Product Id#-{_Product.ProductId}",
+                messageData: data);
+        }
         private void FocusItem(bool isFocus)
         {
-            MainPanel.BackColor = isFocus? FocusColor:UnfocusColor;
+            MainPanel.BackColor = isFocus? _FocusColor : _UnfocusColor;
             Splitter.Visible = isFocus;
         }
 
         private void DeleteItem(object sender, EventArgs e)
         {
-            RequestResult requestStatus = new ProductService().Delete(id: Product.ProductId);
-            Main.ShowAllProduct();
+            RequestResult requestStatus = new ProductService().Delete(id: _Product.ProductId);
+            _Main.ShowAllProduct();
         }
 
         private void UpdateItem(object sender, EventArgs e)
         {
-            Main.UpdateItem(Product);
+            _Main.UpdateItem(_Product);
         }
         private void MainPanelEnter(object sender, EventArgs e)
         {
@@ -77,7 +93,12 @@ namespace Restaurant.App.View
 
         private void OrderItem(object sender, EventArgs e)
         {
-            Main.OrderItem(Product);
+            _Main.OrderItem(_Product);
+        }
+
+        private void ShowDetails(object sender, MouseEventArgs e)
+        {
+            ShowDetails();
         }
     }
 }

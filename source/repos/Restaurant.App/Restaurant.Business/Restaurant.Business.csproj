@@ -45,20 +45,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Customer\Repository\CustomerDataValidation.cs" />
-    <Compile Include="Customer\Model\CustomerModel.cs" />
+    <Compile Include="Customer\CustomerDataValidation.cs" />
+    <Compile Include="Customer\Model\Customer.cs" />
+    <Compile Include="Customer\Repository\CustomerRepository.cs" />
     <Compile Include="Customer\Service\CustomerService.cs" />
-    <Compile Include="IDatabaseConnection.cs" />
-    <Compile Include="IServiceRepository.cs" />
-    <Compile Include="Order\Model\NewOrderModel.cs" />
-    <Compile Include="Order\Model\OrderModel.cs" />
-    <Compile Include="Order\Repository\NewOrderDataValidation.cs" />
+    <Compile Include="Shared\DatabaseConnection.cs" />
+    <Compile Include="Interface\IServiceRepository.cs" />
+    <Compile Include="Order\Model\NewOrder.cs" />
+    <Compile Include="Order\Model\Order.cs" />
+    <Compile Include="Order\NewOrderDataValidation.cs" />
+    <Compile Include="Order\Repository\OrderRepository.cs" />
     <Compile Include="Order\Service\OrderService.cs" />
-    <Compile Include="Product\Model\ProductModel.cs" />
-    <Compile Include="Product\Repository\ProductDataValidation.cs" />
+    <Compile Include="Product\Model\Product.cs" />
+    <Compile Include="Product\ProductDataValidation.cs" />
+    <Compile Include="Product\Repository\ProductRepository.cs" />
     <Compile Include="Product\Service\ProductService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RequestResult.cs" />
+    <Compile Include="Shared\IntParse.cs" />
+    <Compile Include="Shared\RequestResult.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
