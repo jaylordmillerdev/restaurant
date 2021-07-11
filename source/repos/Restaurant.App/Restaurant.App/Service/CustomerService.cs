@@ -13,7 +13,7 @@ namespace Restaurant.App.Service
     {
         public CustomerService()
         {
-            Service = new Business.Customer.Service.CustomerService(ConfigurationManager.ConnectionStrings["DefaultConnectionString"].ConnectionString);
+            Service = new Business.Customer.Service.CustomerService();
         }
         public RequestResult Save(string firstname, string lastname, string address)
         {

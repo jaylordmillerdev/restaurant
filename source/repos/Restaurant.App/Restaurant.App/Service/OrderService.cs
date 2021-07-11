@@ -10,7 +10,7 @@ namespace Restaurant.App.Service
     {
         public OrderService()
         {
-            Service = new Restaurant.Business.Order.Service.OrderService(ConfigurationManager.ConnectionStrings["DefaultConnectionString"].ConnectionString);
+            Service = new Restaurant.Business.Order.Service.OrderService();
         }
         public RequestResult Save(int customerId, int productId, int quantity, int isDelivered)
         {

@@ -10,7 +10,7 @@ namespace Restaurant.App.Service
     {
         public ProductService()
         {
-            Service = new Restaurant.Business.Product.Service.ProductService(ConfigurationManager.ConnectionStrings["DefaultConnectionString"].ConnectionString);
+            Service = new Restaurant.Business.Product.Service.ProductService();
         }
         public RequestResult Save(string name, int quantity, float price)
         {
