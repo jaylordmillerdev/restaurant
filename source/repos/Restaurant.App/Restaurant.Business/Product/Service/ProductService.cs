@@ -5,45 +5,31 @@ using System.Data.SqlClient;
 
 namespace Restaurant.Business.Product.Service
 {
-    public class ProductService : DatabaseConnection, IServiceRepository<Model.Product>
+    public class ProductService : IServiceRepository<Model.Product>
     {
-        public ProductService(String connectionString)
-        {
-            Connect(connectionString);
-        }
-        public void Connect(string connectionString)
-        {
-            Connection = new SqlConnection(connectionString);
-            Connection.Open();
-        }
         public RequestResult Save(Model.Product product)
         {
-            RequestResult result = new ProductRepository().Save(product, Connection);
-            Disconnect();
+            RequestResult result = new ProductRepository().Save(product);
             return result;
         }
         public RequestResult Update(Model.Product product)
         {
-            RequestResult result = new ProductRepository().Update(product, Connection);
-            Disconnect();
+            RequestResult result = new ProductRepository().Update(product);
             return result;
         }
         public RequestResult Delete(int id)
         {
-            RequestResult result = new ProductRepository().Delete(id, Connection);
-            Disconnect();
+            RequestResult result = new ProductRepository().Delete(id);
             return result;
         }
         public List<Model.Product> FetchAll()
         {
-            List<Model.Product> Products = new ProductRepository().FetchAll(Connection);
-            Disconnect();
+            List<Model.Product> Products = new ProductRepository().FetchAll();
             return Products;
         }
         public List<Model.Product> Filter(string filter)
         {
-            List<Model.Product> Products = new ProductRepository().Filter(filter, Connection);
-            Disconnect();
+            List<Model.Product> Products = new ProductRepository().Filter(filter);
             return Products;
 
         }

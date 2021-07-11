@@ -6,9 +6,9 @@ using System.Data.SqlClient;
 
 namespace Restaurant.Business.Order.Repository
 {
-    public class OrderRepository
+    public class OrderRepository : DatabaseConnection
     {
-        public RequestResult Save(NewOrder order, SqlConnection connection)
+        public RequestResult Save(NewOrder order)
         {
             RequestResult validate = NewOrderDataValidation.isDataValid(order);
             if (!validate.isSuccess)
@@ -18,18 +18,20 @@ namespace Restaurant.Business.Order.Repository
             try
             {
                 string query = $"EXEC StoreOrder @CustomerId = {order.CustomerId}, @ProductId = {order.ProductId}, @Quantity = {order.Quantity}, @IsDelivered = {order.IsDelivered};";
-                using (SqlCommand myCommand = new SqlCommand(query, connection))
+                using (SqlCommand myCommand = new SqlCommand(query, Connect()))
                 {
                     myCommand.ExecuteNonQuery();
+                    Disconnect();
                     return new RequestResult("Order successfully save", true);
                 }
             }
             catch (Exception ex)
             {
+                Disconnect();
                 return new RequestResult("Encounter an error saving order, please contact admin", false);
             }
         }
-        public RequestResult Update(NewOrder order, SqlConnection connection)
+        public RequestResult Update(NewOrder order)
         {
             RequestResult validate = NewOrderDataValidation.isDataValid(order);
             if (!validate.isSuccess)
@@ -39,38 +41,42 @@ namespace Restaurant.Business.Order.Repository
             try
             {
                 string query = $"EXEC UpdateOrder @CustomerId = {order.CustomerId}, @ProductId = {order.ProductId}, @Quantity = {order.Quantity}, @IsDelivered = {order.IsDelivered}, @Id = {order.Id};";
-                using (SqlCommand myCommand = new SqlCommand(query, connection))
+                using (SqlCommand myCommand = new SqlCommand(query, Connect()))
                 {
                     myCommand.ExecuteNonQuery();
+                    Disconnect();
                     return new RequestResult("Order successfully updated", true);
                 }
             }
             catch (Exception ex)
             {
+                Disconnect();
                 return new RequestResult("Encounter an error updated order, please contact admin", false);
             }
         }
-        public RequestResult Delete(int id, SqlConnection connection)
+        public RequestResult Delete(int id)
         {
             try
             {
                 string query = $"EXEC DeleteOrder @Id = {id}";
-                using (SqlCommand myCommand = new SqlCommand(query, connection))
+                using (SqlCommand myCommand = new SqlCommand(query, Connect()))
                 {
                     myCommand.ExecuteNonQuery();
+                    Disconnect();
                     return new RequestResult("Order successfully deleted", true);
                 }
             }
             catch (Exception ex)
             {
+                Disconnect();
                 return new RequestResult("Encounter an error deleting customer, please contact admin", false);
             }
         }
-        public List<Model.Order> FetchAll(SqlConnection connection)
+        public List<Model.Order> FetchAll()
         {
             List<Model.Order> Products = new List<Model.Order>();
             string query = "EXEC FetchAllOrder;";
-            using (SqlCommand oCmd = new SqlCommand(query, connection))
+            using (SqlCommand oCmd = new SqlCommand(query, Connect()))
             {
                 using (SqlDataReader oReader = oCmd.ExecuteReader())
                 {
@@ -92,13 +98,14 @@ namespace Restaurant.Business.Order.Repository
                     }
                 }
             }
+            Disconnect();
             return Products;
         }
-        public List<Model.Order> FetchAllByDateFilter(string start, string end, SqlConnection connection)
+        public List<Model.Order> FetchAllByDateFilter(string start, string end)
         {
             List<Model.Order> Products = new List<Model.Order>();
             string query = $"EXEC FilterByDate @StartDate = '{start}', @EndDate = '{end}';";
-            using (SqlCommand oCmd = new SqlCommand(query, connection))
+            using (SqlCommand oCmd = new SqlCommand(query, Connect()))
             {
                 using (SqlDataReader oReader = oCmd.ExecuteReader())
                 {
@@ -120,33 +127,37 @@ namespace Restaurant.Business.Order.Repository
                     }
                 }
             }
+            Disconnect();
             return Products;
         }
-        public int GetUndeliveredCount(SqlConnection connection)
+        public int GetUndeliveredCount()
         {
             List<Model.Order> Products = new List<Model.Order>();
             string query = "EXEC GetUndeliverCount;";
-            using (SqlCommand oCmd = new SqlCommand(query, connection))
+            using (SqlCommand oCmd = new SqlCommand(query, Connect()))
             {
                 using (SqlDataReader oReader = oCmd.ExecuteReader())
                 {
+                    Disconnect();
                     return IntParse.Parse(oReader["Undelivered"].ToString(), 0);
                 }
             }
         }
-        public RequestResult DeliverOrder(int orderId, int quantity, SqlConnection connection)
+        public RequestResult DeliverOrder(int orderId, int quantity)
         {
             try
             {
                 string query = $"EXEC DeliverOrder @Id = {orderId}, @Quantity = {quantity};";
-                using (SqlCommand myCommand = new SqlCommand(query, connection))
+                using (SqlCommand myCommand = new SqlCommand(query, Connect()))
                 {
                     myCommand.ExecuteNonQuery();
+                    Disconnect();
                     return new RequestResult("Order successfully delivered", true);
                 }
             }
             catch (Exception ex)
             {
+                Disconnect();
                 return new RequestResult("Encounter an error updated order, please contact admin", false);
             }
         }

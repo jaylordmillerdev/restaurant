@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.SqlClient;
 
 namespace Restaurant.Business
 {
     public class DatabaseConnection
     {
         public SqlConnection Connection;
-        public void Connect(string connectionString)
+        public SqlConnection Connect()
         {
-            Connection = new SqlConnection(connectionString);
+            Connection = new SqlConnection("server=DESKTOP-CHM8OKV;Database=restaurant;Trusted_Connection=True;");
             Connection.Open();
+            return Connection;
         }
         public void Disconnect()
         {
